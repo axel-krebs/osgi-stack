@@ -1,8 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/java/de/akrebs/testing/stackio/logbus/logstash/Example.java=UTF-8
-encoding//test/logbus_logstash/ExampleTest.java=UTF-8
 encoding/<project>=UTF-8
 encoding/bnd.bnd=UTF-8
 encoding/launch.bndrun=UTF-8
-encoding/test=UTF-8
