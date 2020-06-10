@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>de.akrebs.testing</groupId>
+  
+  <artifactId>stack-io</artifactId>
+  
+  <version>1.0.0</version>
+  
+  <packaging>pom</packaging>
+  
+  <description>Establish distributable memory in OSGi environment</description>
+
+	<scm>
+		<developerConnection>https://github.com/axel-krebs/osgi-stack.git</developerConnection>
+	</scm>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<osgi.core.version>7.0.0</osgi.core.version>
+		<osgi.enroute.version></osgi.enroute.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.core</artifactId>
+			<version>${osgi.core.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.cmpn</artifactId>
+			<version>${osgi.core.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.annotation</artifactId>
+			<version>${osgi.core.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>aLL</id>
+			<modules>
+				<module>../asybus-api</module>
+				<module>../asybus-camel</module>
+				<module>../logbus-api</module>
+				<module>../membus</module>
+				<module>../membus-test</module>
+				<module>../restbus</module>
+			</modules>
+			<build>
+				<defaultGoal>bundle:bundle</defaultGoal>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>fabric8-maven-plugin</artifactId>
+				<version>4.4.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>resource</goal>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
