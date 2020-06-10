@@ -1,0 +1,16 @@
+Bundle-Version: 1.0.0
+Bundle-Activator: de.akrebs.testing.bmpio.asybus.impl.Activator
+Export-Package: de.akrebs.testing.bmpio.asybus
+Bundle-SymbolicName: asybus-api
+-runrequires: \
+	bnd.identity;id='org.apache.felix.gogo.command',\
+	bnd.identity;id='org.apache.felix.gogo.shell',\
+	bnd.identity;id='org.apache.felix.gogo.runtime',\
+	bnd.identity;id='org.apache.felix.dependencymanager',\
+	bnd.identity;id='osgi.cmpn'
+-runfw: org.apache.felix.framework;version='[6.0.3,6.0.3]'
+-buildpath: \
+	org.apache.felix.gogo.command,\
+	org.apache.felix.gogo.shell
+-runee: JavaSE-1.8
+-resolve: manual
