@@ -1,4 +1,4 @@
-package de.akrebs.testing.bmpio.restbus;
+package de.akrebs.testing.stackio.logbus.logstash;
 
 import org.osgi.service.component.annotations.*;
 

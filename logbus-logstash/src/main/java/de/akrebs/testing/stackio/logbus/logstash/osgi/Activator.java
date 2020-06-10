@@ -1,4 +1,4 @@
-package de.akrebs.testing.bmpio.restbus.impl;
+package de.akrebs.testing.stackio.logbus.logstash.osgi;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -7,7 +7,8 @@ public class Activator implements BundleActivator {
 
 	@Override
 	public void start(BundleContext context) throws Exception {
-		// TODO Auto-generated method stub
+		
+		// TODO Find log service and add implementation
 
 	}
 

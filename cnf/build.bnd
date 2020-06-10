@@ -21,3 +21,4 @@ bin: target/classes
 test: src/test/java'
 bin_test: target/test-classes
 generated: target/generated-sources
+junit: org.apache.servicemix.bundles.junit

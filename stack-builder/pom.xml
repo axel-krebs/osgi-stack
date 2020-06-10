@@ -1,16 +1,18 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
-  <modelVersion>4.0.0</modelVersion>
-  
-  <groupId>de.akrebs.testing</groupId>
-  
-  <artifactId>stack-io</artifactId>
-  
-  <version>1.0.0</version>
-  
-  <packaging>pom</packaging>
-  
-  <description>Establish distributable memory in OSGi environment</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.akrebs.testing</groupId>
+
+	<artifactId>stack-io</artifactId>
+
+	<version>1.0.0</version>
+
+	<packaging>pom</packaging>
+
+	<description>Establish distributable memory in OSGi environment</description>
 
 	<scm>
 		<developerConnection>https://github.com/axel-krebs/osgi-stack.git</developerConnection>
@@ -43,6 +45,14 @@
 			<version>${osgi.core.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<profiles>
@@ -52,6 +62,7 @@
 				<module>../asybus-api</module>
 				<module>../asybus-camel</module>
 				<module>../logbus-api</module>
+				<module>../logbus-logstash</module>
 				<module>../membus</module>
 				<module>../membus-test</module>
 				<module>../restbus</module>

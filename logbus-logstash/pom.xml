@@ -1,25 +1,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-
+	
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>de.akrebs.testing</groupId>
 		<artifactId>stack-io</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>restbus</artifactId>
-
+	<artifactId>logbus-logstash</artifactId>
+	
 	<packaging>bundle</packaging>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder -->
 		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.dependencymanager</artifactId>
-			<version>4.6.0</version>
+			<groupId>net.logstash.logback</groupId>
+			<artifactId>logstash-logback-encoder</artifactId>
+			<version>6.4</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -42,7 +44,8 @@
 				<configuration>
 					<instructions>
 						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
-						<!-- <Bundle-Activator>de.akrebs.testing.stackio.restbus.impl.Activator</Bundle-Activator> -->
+						<Bundle-Activator>de.akrebs.testing.stackio.logbus.logstash.osgi.Activator</Bundle-Activator>
+						<Embed-Dependency>logstash-logback-encoder</Embed-Dependency>
 					</instructions>
 				</configuration>
 			</plugin>
