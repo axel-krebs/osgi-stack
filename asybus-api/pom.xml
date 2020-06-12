@@ -9,7 +9,6 @@
 		<artifactId>stack-io</artifactId>
 		<groupId>de.akrebs.testing</groupId>
 		<version>1.0.0</version>
-		<relativePath>./dmp-io</relativePath>
 	</parent>
 
 	<artifactId>asybus-api</artifactId>
@@ -24,7 +23,17 @@
 
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<testResources>
+			<testResource>
+				<directory>src/test/resource</directory>
+			</testResource>
+		</testResources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -41,7 +50,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Export-Package>de.akrebs.testing.bmpio.asybus</Export-Package>
+						<Export-Package>de.akrebs.testing.stackio.asybus.api</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>

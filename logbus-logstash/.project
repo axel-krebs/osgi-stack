@@ -3,6 +3,7 @@
 	<name>logbus-logstash</name>
 	<comment></comment>
 	<projects>
+		<project>logbus-api</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -14,7 +14,7 @@
 
 	<artifactId>membus</artifactId>
 
-	<name>shared memory service</name>
+	<name>membus service</name>
 
 	<packaging>bundle</packaging>
 

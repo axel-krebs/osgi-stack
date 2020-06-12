@@ -7,7 +7,6 @@
 		<groupId>de.akrebs.testing</groupId>
 		<artifactId>stack-io</artifactId>
 		<version>1.0.0</version>
-		<relativePath>dmp-io</relativePath>
 	</parent>
 
 	<artifactId>logbus-api</artifactId>
@@ -26,7 +25,17 @@
 
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<testResources>
+			<testResource>
+				<directory>src/test/resource</directory>
+			</testResource>
+		</testResources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -43,7 +52,7 @@
 				<version>4.2.1</version>
 				<configuration>
 					<instructions>
-						<Export-Package>de.akrebs.testing.logbus</Export-Package>
+						<Export-Package>de.akrebs.testing.stackio.logbus.api</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>

@@ -3,6 +3,9 @@
 javac.source: 1.8
 javac.target: 1.8
 
-Bundle-Version: 1.0.0.${tstamp}
-Export-Package: de.akrebs.testing.bmpio.logbus
+Bundle-Version: 1.0.0
 
+
+-runfw: org.apache.felix.framework;version='[6.0.3,6.0.3]'
+-runee: JavaSE-1.8
+Export-Package: de.akrebs.testing.stackio.logbus.api

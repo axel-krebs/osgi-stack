@@ -18,6 +18,16 @@
 		<developerConnection>https://github.com/axel-krebs/osgi-stack.git</developerConnection>
 	</scm>
 
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>bintray-axel-krebs-osgi-stack</id>
+			<name>Private-public Repository</name>
+			<url>https://dl.bintray.com/axel-krebs/osgi-stack/stack-io;publish=1</url>
+			<layout>default</layout>
+		</repository>
+	</distributionManagement>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<osgi.core.version>7.0.0</osgi.core.version>
@@ -27,18 +37,21 @@
 	</properties>
 
 	<dependencies>
+	
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>osgi.core</artifactId>
 			<version>${osgi.core.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>osgi.cmpn</artifactId>
 			<version>${osgi.core.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>osgi.annotation</artifactId>
@@ -53,6 +66,20 @@
 			<version>4.13</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/biz.aQute.bnd/bndlib -->
+		<dependency>
+			<groupId>biz.aQute.bnd</groupId>
+			<artifactId>bndlib</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.osgi/osgi.enroute.junit.wrapper -->
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.enroute.junit.wrapper</artifactId>
+			<version>4.12.0</version>
+		</dependency>
 	</dependencies>
 
 	<profiles>
@@ -63,8 +90,9 @@
 				<module>../asybus-camel</module>
 				<module>../logbus-api</module>
 				<module>../logbus-logstash</module>
+				<module>../logbus-gogo</module>
 				<module>../membus</module>
-				<module>../membus-test</module>
+				<module>../membus-inspector</module>
 				<module>../restbus</module>
 			</modules>
 			<build>

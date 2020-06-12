@@ -1,0 +1,7 @@
+src = src/main/java
+src.resources = src/main/resources
+bin = target/classes
+testsrc = src/test/java
+testsrc.resources = src/test/resources
+testbin = target/test-classes
+target-dir=target
