@@ -12,7 +12,7 @@
 
 	<packaging>pom</packaging>
 
-	<description>Establish distributable memory in OSGi environment</description>
+	<description>Establish distributable memory in OSGi environment. Dependencies defined for all OSGi bundles.</description>
 
 	<scm>
 		<developerConnection>https://github.com/axel-krebs/osgi-stack.git</developerConnection>
@@ -37,21 +37,21 @@
 	</properties>
 
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>osgi.core</artifactId>
 			<version>${osgi.core.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>osgi.cmpn</artifactId>
 			<version>${osgi.core.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>osgi.annotation</artifactId>

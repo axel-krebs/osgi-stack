@@ -2,18 +2,19 @@ Bundle-Version: 1.0.0
 Bundle-Name: logbus-gogo
 Bundle-Category: logging
 Bundle-Activator: de.akrebs.testing.stackio.logbus.gogo.osgi.Activator
-
-Import-Package: *
+Bundle-Description: Provide Gogo shell commands to interact with the log service.
+Bundle-Vendor: Axel Krebs
 
 javac.source: 1.8
 javac.target: 1.8
 
 -buildpath: \
-	osgi.annotation;version=6.0.1,\
-	osgi.core;version=6.0,\
-	osgi.cmpn;version=6.0,\
 	logbus-api;version=latest,\
-	org.apache.felix.gogo.runtime;version=1.1.2
+	org.apache.felix.gogo.runtime;version=1.1.2,\
+	osgi.core;version=7.0,\
+	osgi.cmpn;version=7.0,\
+	osgi.annotation;version=7.0,\
+	org.osgi.service.component
 
 -testpath: \
 	${junit}
@@ -21,14 +22,17 @@ javac.target: 1.8
 -runrequires: \
 	bnd.identity;id='org.apache.felix.gogo.command',\
 	bnd.identity;id='org.apache.felix.gogo.shell',\
-	bnd.identity;version='1.0.0';id='logbus-api'
+	bnd.identity;version='1.0.0';id='logbus-api',\
+	bnd.identity;id='org.osgi.service.component'
 -runfw: org.apache.felix.framework;version='[6.0.3,6.0.3]'
 -runee: JavaSE-1.8
 -runbundles: \
 	org.apache.felix.gogo.command;version='[1.1.0,1.1.1)',\
 	org.apache.felix.gogo.runtime;version='[1.1.2,1.1.3)',\
 	org.apache.felix.gogo.shell;version='[1.1.2,1.1.3)',\
-	logbus-api;version=snapshot
+	logbus-api;version=snapshot,\
+	org.apache.felix.scr;version='[2.1.10,2.1.11)',\
+	org.osgi.service.component;version='[1.4.0,1.4.1)'
 	
 -privatepackage: \
 	de.akrebs.testing.stackio.logbus.gogo.osgi,\

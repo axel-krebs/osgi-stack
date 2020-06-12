@@ -27,6 +27,13 @@
 			<version>${pom.version}</version>
 			<scope>compile</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.service.component</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -58,8 +65,8 @@
 				<version>4.2.1</version>
 				<configuration>
 					<instructions>
-						<Export-Package>de.akrebs.testing.stackio.logbus.gogo</Export-Package>
 						<Bundle-Activator>de.akrebs.testing.stackio.logbus.gogo.osgi.Activator</Bundle-Activator>
+						<Private-Package>de.akrebs.testing.stackio.logbus.gogo.impl</Private-Package>
 						<Private-Package>de.akrebs.testing.stackio.logbus.gogo.osgi</Private-Package>
 					</instructions>
 				</configuration>
