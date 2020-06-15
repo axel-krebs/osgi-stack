@@ -1,11 +1,14 @@
--buildpath: osgi.annotation; version=6.0.1
--baseline: *
+Export-Package: de.akrebs.testing.stackio.logbus.api
+Bundle-Name: logbus.api
+Bundle-Description: Define a service I/F for diagnostic logging.
+Bundle-Category: logging
+Bundle-Vendor: Axel Krebs
+Bundle-Version: 1.0.0
+
 javac.source: 1.8
 javac.target: 1.8
 
-Bundle-Version: 1.0.0
-
-
+-buildpath: osgi.annotation; version=6.0.1
+-baseline: *
 -runfw: org.apache.felix.framework;version='[6.0.3,6.0.3]'
 -runee: JavaSE-1.8
-Export-Package: de.akrebs.testing.stackio.logbus.api
