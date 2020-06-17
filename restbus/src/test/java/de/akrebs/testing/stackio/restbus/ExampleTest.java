@@ -1,13 +1,12 @@
 package de.akrebs.testing.stackio.restbus;
 
-import org.junit.Test;
+import junit.framework.TestCase;
 
-public class ExampleTest {
+public class ExampleTest extends TestCase {
 
-	@Test
-	public void test() {
-		
-		// TODO 
-	}
+    public void testSendMessage() {
+
+	// TODO
+    }
 
 }

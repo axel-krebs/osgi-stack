@@ -6,8 +6,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>stack-io</artifactId>
-		<groupId>de.akrebs.testing</groupId>
+		<artifactId>stack-builder</artifactId>
+		<groupId>de.akrebs.stackio</groupId>
 		<version>1.0.0</version>
 	</parent>
 
@@ -50,7 +50,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Export-Package>de.akrebs.testing.stackio.asybus.api</Export-Package>
+						<Export-Package>de.akrebs.stackio.stackio.asybus.api</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>

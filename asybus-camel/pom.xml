@@ -5,8 +5,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>stack-io</artifactId>
-		<groupId>de.akrebs.testing</groupId>
+		<artifactId>stack-builder</artifactId>
+		<groupId>de.akrebs.stackio</groupId>
 		<version>1.0.0</version>
 	</parent>
 
@@ -23,7 +23,7 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>de.akrebs.testing</groupId>
+			<groupId>de.akrebs.stackio</groupId>
 			<artifactId>asybus-api</artifactId>
 			<version>${project.version}</version>
 			<scope>provided</scope>
@@ -59,9 +59,9 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Private-Package>de.akrebs.testing.bmpio.asybus.camel.impl</Private-Package>
+						<Private-Package>de.akrebs.stackio.bmpio.asybus.camel.impl</Private-Package>
 						<Embed-Dependency>*;scope=compile</Embed-Dependency>
-						<Bundle-Activator>de.akrebs.testing.asybus.camel.Activator</Bundle-Activator>
+						<Bundle-Activator>de.akrebs.stackio.asybus.camel.Activator</Bundle-Activator>
 					</instructions>
 				</configuration>
 			</plugin>

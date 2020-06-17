@@ -1,6 +1,5 @@
 # Discover and run all test cases annotated with the @RunWith annotation
-Test-Cases: ${classes;CONCRETE;ANNOTATED;org.junit.runner.RunWith},\
-	de.akrebs.testing.stackio.membus.ExampleIntegrationTest
+Test-Cases: ${classes;CONCRETE;ANNOTATED;org.junit.runner.RunWith}
 
 # Build dependencies 
 -buildpath: \

@@ -1,5 +1,5 @@
 Export-Package: de.akrebs.testing.stackio.logbus.api
-Bundle-Name: logbus.api
+Bundle-Name: logbus-api
 Bundle-Description: Define a service I/F for diagnostic logging.
 Bundle-Category: logging
 Bundle-Vendor: Axel Krebs

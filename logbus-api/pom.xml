@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>de.akrebs.testing</groupId>
-		<artifactId>stack-io</artifactId>
+		<groupId>de.akrebs.stackio</groupId>
+		<artifactId>stack-builder</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
@@ -52,7 +52,7 @@
 				<version>4.2.1</version>
 				<configuration>
 					<instructions>
-						<Export-Package>de.akrebs.testing.stackio.logbus.api</Export-Package>
+						<Export-Package>de.akrebs.stackio.stackio.logbus.api</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>

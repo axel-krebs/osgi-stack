@@ -5,8 +5,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>de.akrebs.testing</groupId>
-		<artifactId>stack-io</artifactId>
+		<groupId>de.akrebs.stackio</groupId>
+		<artifactId>stack-builder</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
@@ -34,7 +34,7 @@
 			<type>bundle</type>
 		</dependency>
 		<dependency>
-			<groupId>de.akrebs.testing</groupId>
+			<groupId>de.akrebs.stackio</groupId>
 			<artifactId>logbus-api</artifactId>
 			<version>1.0.0</version>
 			<type>bundle</type>
@@ -72,10 +72,11 @@
 				<configuration>
 					<instructions>
 						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
-						<Bundle-Activator>de.akrebs.testing.stackio.logbus.logstash.osgi.Activator</Bundle-Activator>
+						<Bundle-Activator>de.akrebs.stackio.stackio.logbus.logstash.osgi.Activator</Bundle-Activator>
 						<Embed-Dependency>logstash-logback-encoder</Embed-Dependency>
-						<Private-Package>de.akrebs.testing.stackio.logbus.logstash.impl</Private-Package>
-						<Private-Package>de.akrebs.testing.stackio.logbus.logstash.osgi</Private-Package>
+						<Private-Package>de.akrebs.stackio.stackio.logbus.logstash.impl</Private-Package>
+						<Private-Package>de.akrebs.stackio.stackio.logbus.logstash.osgi</Private-Package>
+						<!-- This bundle does not export an API since it is hidden from other bundles! -->
 					</instructions>
 				</configuration>
 			</plugin>

@@ -1,0 +1,12 @@
+Bundle-Name: membus-api
+Bundle-Version: 1.0.0
+Export-Package: de.akrebs.stackio.membus
+
+javac.source: 1.8
+javac.target: 1.8
+
+-buildpath: osgi.annotation; version=6.0.1
+-baseline: *
+-runfw: org.apache.felix.framework;version='[6.0.3,6.0.3]'
+-runee: JavaSE-1.8
+-resolve: auto

@@ -18,7 +18,7 @@ import de.akrebs.testing.stackio.logbus.api.EventLogger;
 public class EventLogServiceProxy {
 
     @Reference
-    private EventLogger loggingService;
+    public EventLogger loggingService;
 
     private volatile boolean active = false;
 
@@ -29,11 +29,13 @@ public class EventLogServiceProxy {
      */
     @Activate
     void activate(ComponentContext context) {
+	System.out.println("GOGO log activated.");
 	active = true;
     }
 
     @Deactivate
     void deactivate(ComponentContext context) {
+	System.out.println("GOGO log de-activated.");
 	active = false;
     }
 

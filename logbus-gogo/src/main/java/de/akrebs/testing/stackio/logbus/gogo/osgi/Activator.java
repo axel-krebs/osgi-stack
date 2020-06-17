@@ -7,6 +7,8 @@ public class Activator implements BundleActivator {
 
 	@Override
 	public void start(BundleContext context) throws Exception {
+	    
+	    System.out.println("GOGO command - starting..");
 
 	    // Done by @Component annotation!
 	    
@@ -18,6 +20,8 @@ public class Activator implements BundleActivator {
 	@Override
 	public void stop(BundleContext context) throws Exception {
 		
+	    System.out.println("GOGO command - stoping..");
+
 	}
 
 }

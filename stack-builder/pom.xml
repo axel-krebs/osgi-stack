@@ -4,9 +4,9 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>de.akrebs.testing</groupId>
+	<groupId>de.akrebs.stackio</groupId>
 
-	<artifactId>stack-io</artifactId>
+	<artifactId>stack-builder</artifactId>
 
 	<version>1.0.0</version>
 
@@ -67,6 +67,14 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/biz.aQute.bnd/bndlib -->
 		<dependency>
 			<groupId>biz.aQute.bnd</groupId>
@@ -79,6 +87,7 @@
 			<groupId>org.osgi</groupId>
 			<artifactId>osgi.enroute.junit.wrapper</artifactId>
 			<version>4.12.0</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -89,33 +98,39 @@
 				<module>../asybus-api</module>
 				<module>../asybus-camel</module>
 				<module>../logbus-api</module>
+				<module>../logbus-client</module>
 				<module>../logbus-logstash</module>
 				<module>../logbus-gogo</module>
-				<module>../membus</module>
+				<module>../membus-api</module>
+				<module>../membus-hazelcast</module>
 				<module>../membus-inspector</module>
 				<module>../restbus</module>
+				<module>../restbus-test</module>
 			</modules>
 			<build>
 				<defaultGoal>bundle:bundle</defaultGoal>
 			</build>
 		</profile>
+		<profile>
+			<id>deploy</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>io.fabric8</groupId>
+						<artifactId>fabric8-maven-plugin</artifactId>
+						<version>4.4.1</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>resource</goal>
+									<goal>build</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 	</profiles>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>io.fabric8</groupId>
-				<artifactId>fabric8-maven-plugin</artifactId>
-				<version>4.4.1</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>resource</goal>
-							<goal>build</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
 </project>

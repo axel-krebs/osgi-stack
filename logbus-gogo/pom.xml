@@ -5,8 +5,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>de.akrebs.testing</groupId>
-		<artifactId>stack-io</artifactId>
+		<groupId>de.akrebs.stackio</groupId>
+		<artifactId>stack-builder</artifactId>
 		<version>1.0.0</version>
 		<relativePath>dmp-io</relativePath>
 	</parent>
@@ -16,24 +16,33 @@
 	<packaging>bundle</packaging>
 
 	<dependencies>
+	
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.gogo.runtime</artifactId>
 			<version>1.1.2</version>
 		</dependency>
-		<dependency>
-			<groupId>de.akrebs.testing</groupId>
-			<artifactId>logbus-api</artifactId>
-			<version>${pom.version}</version>
-			<scope>compile</scope>
-		</dependency>
-
+		
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>org.osgi.service.component</artifactId>
 			<version>1.4.0</version>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>de.akrebs.stackio</groupId>
+			<artifactId>logbus-api</artifactId>
+			<version>${pom.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>de.akrebs.stackio</groupId>
+			<artifactId>logbus-client</artifactId>
+			<version>${pom.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -65,9 +74,9 @@
 				<version>4.2.1</version>
 				<configuration>
 					<instructions>
-						<Bundle-Activator>de.akrebs.testing.stackio.logbus.gogo.osgi.Activator</Bundle-Activator>
-						<Private-Package>de.akrebs.testing.stackio.logbus.gogo.impl</Private-Package>
-						<Private-Package>de.akrebs.testing.stackio.logbus.gogo.osgi</Private-Package>
+						<Bundle-Activator>de.akrebs.stackio.stackio.logbus.gogo.osgi.Activator</Bundle-Activator>
+						<Private-Package>de.akrebs.stackio.stackio.logbus.gogo.impl</Private-Package>
+						<Private-Package>de.akrebs.stackio.stackio.logbus.gogo.osgi</Private-Package>
 					</instructions>
 				</configuration>
 			</plugin>
