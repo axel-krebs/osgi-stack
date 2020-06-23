@@ -10,39 +10,12 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>logbus-client</artifactId>
-
-	<packaging>bundle</packaging>
-
-	<dependencies>
-		<dependency>
-			<groupId>de.akrebs.stackio</groupId>
-			<artifactId>logbus-api</artifactId>
-			<version>1.0.0</version>
-			<type>bundle</type>
-		</dependency>
-	</dependencies>
+	<artifactId>registry-api</artifactId>
 
 	<build>
 
-		<sourceDirectory>src/main/java</sourceDirectory>
-
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-			</resource>
-		</resources>
-
-		<testSourceDirectory>src/test/java</testSourceDirectory>
-
-		<testResources>
-			<testResource>
-				<directory>src/test/resource</directory>
-			</testResource>
-		</testResources>
-
 		<plugins>
-		
+
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
@@ -51,7 +24,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
@@ -59,15 +32,12 @@
 				<version>4.2.1</version>
 				<configuration>
 					<instructions>
-						<Bundle-Activator>de.akrebs.stackio.logbus.client.osgi.Activator</Bundle-Activator>
-						<Private-Package>de.akrebs.stackio.logbus.client.impl</Private-Package>
-						<Private-Package>de.akrebs.stackio.logbus.client.osgi</Private-Package>
+						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+						<Export-Package>de.akrebs.stackio.registry</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>
-			
-		</plugins>
-		
-	</build>
 
+		</plugins>
+	</build>
 </project>

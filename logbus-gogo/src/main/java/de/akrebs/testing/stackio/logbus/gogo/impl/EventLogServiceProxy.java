@@ -14,7 +14,8 @@ import de.akrebs.testing.stackio.logbus.api.EventLogger;
     		{ "osgi.command.scope=logbus",
     		  "osgi.command.function=log_message" 
     		}, 
-    	service = EventLogServiceProxy.class)
+    	service = EventLogServiceProxy.class,
+    	immediate = true)
 public class EventLogServiceProxy {
 
     @Reference
