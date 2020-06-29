@@ -2,7 +2,8 @@ Bundle-Version: 1.0.0
 Bundle-Name: logbus-gogo
 Bundle-Category: logging
 Bundle-Activator: de.akrebs.testing.stackio.logbus.gogo.osgi.Activator
-Bundle-Description: Provide Gogo shell commands to interact with the log service.
+Bundle-Description: Provide Gogo shell commands to interact with the log service. This can be \
+	considered ONE method of testing.
 Bundle-Vendor: Axel Krebs
 
 javac.source: 1.8

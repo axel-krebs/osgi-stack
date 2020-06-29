@@ -2,6 +2,7 @@ junit: org.apache.servicemix.bundles.junit;version="[4.11,5)"
 mockito: \
 	org.mockito.mockito-core;version="[2.19,4)",\
 	org.objenesis;version="[2.1,3)"
+	testsrc = src/test/java
 -plugin.1.Local: \
 	aQute.bnd.deployer.repository.LocalIndexedRepo; \
 		name=Local; \
@@ -18,6 +19,12 @@ mockito: \
     aQute.bnd.repository.maven.provider.MavenBndRepository; \
         releaseUrl=https://repo.maven.apache.org/maven2/; \
         name="Central"
+        
+-plugin.4.Testing: \
+	aQute.bnd.repository.p2.provider.P2Repository;\
+		name="Eclipse Local";\
+		url="file:///path/to/eclipse/";\
+		location="${workspace}/cnf/cache/stable/EclipseLocal"
         
 -releaserepo: Release
 

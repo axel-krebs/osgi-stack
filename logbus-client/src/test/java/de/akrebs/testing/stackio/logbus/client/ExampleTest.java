@@ -6,7 +6,7 @@ public class ExampleTest {
 
     @Test
     public void test() {
-	// Sfail("Not yet implemented");
+    	System.out.println("TEST: Running test()");
     }
 
 }

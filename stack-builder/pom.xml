@@ -79,9 +79,11 @@
 	</dependencies>
 
 	<profiles>
+	
 		<profile>
 			<id>aLL</id>
 			<modules>
+				<module>../auth-api</module>
 				<module>../logbus-api</module>
 				<module>../logbus-client</module>
 				<module>../logbus-logstash</module>
@@ -89,11 +91,15 @@
 				<module>../membus-api</module>
 				<module>../membus-hazelcast</module>
 				<module>../registry-api</module>
+				<module>../domain-controller</module>
+				<module>../api-gateway</module>
+				<module>../ws-gateway</module>
 			</modules>
 			<build>
 				<defaultGoal>bundle:bundle</defaultGoal>
 			</build>
 		</profile>
+		
 		<profile>
 			<id>deploy</id>
 			<build>

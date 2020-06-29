@@ -1,19 +1,33 @@
--buildpath: \
-	osgi.annotation;version=6.0.1,\
-	osgi.core;version=6.0,\
-	osgi.cmpn;version=6.0,\
-	logbus-api;version=1.0.0
+Bundle-Name: logbus-client
+Bundle-Version: 1.0.0
+Private-Package: de.akrebs.testing.stackio.logbus.client.osgi
+Bundle-Activator: de.akrebs.testing.stackio.logbus.client.osgi.Activator
 
--testpath: \
-	${junit}
+Test-Cases: de.akrebs.stackio.logbus.client.ExampleTest
 
 javac.source: 1.8
 javac.target: 1.8
 
-Bundle-Version: 1.0.0
-Private-Package: de.akrebs.testing.stackio.logbus.client.osgi
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	osgi.core;version=6.0,\
+	osgi.cmpn;version=6.0,\
+	logbus-api;version=1.0.0,\
+	biz.aQute.junit;version=3.1.0
+
+#-testpath: \
+#	${junit}
+-tester: biz.aQute.tester.junit-platform
+-tester.testnames: ExampleTest
+
 -privatepackage: de.akrebs.testing.stackio.logbus.client.impl
-Bundle-Name: logbus-client
 -runfw: org.apache.felix.framework;version='[6.0.3,6.0.3]'
 -runee: JavaSE-1.8
-Bundle-Activator: de.akrebs.testing.stackio.logbus.client.osgi.Activator
+-runbundles: \
+	biz.aQute.junit;version='[5.1.1,5.1.2)',\
+	logbus-api;version=snapshot,\
+	logbus-client;version=snapshot
+-runrequires: \
+	bnd.identity;version='1.0.0';id='logbus-api',\
+	bnd.identity;version='1.0.0';id='logbus-client',\
+	bnd.identity;version='5.1.1.202006162103';id='biz.aQute.junit'

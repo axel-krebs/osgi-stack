@@ -1,6 +1,6 @@
 package de.akrebs.testing.stackio.logbus.client.impl;
 
-import de.akrebs.testing.stackio.logbus.api.EventLogger;
+import de.akrebs.stackio.logbus.api.EventLogger;
 
 public class EventLoggerImpl implements EventLogger {
 

@@ -7,15 +7,12 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
 
-import de.akrebs.testing.stackio.logbus.api.EventLogger;
+import de.akrebs.stackio.logbus.api.EventLogger;
 
 @Component(
-	property = 
-    		{ "osgi.command.scope=logbus",
-    		  "osgi.command.function=log_message" 
-    		}, 
-    	service = EventLogServiceProxy.class,
-    	immediate = true)
+	property = { "osgi.command.scope=logbus", "osgi.command.function=log_message" },
+	service = EventLogServiceProxy.class,
+	immediate = true)
 public class EventLogServiceProxy {
 
     @Reference
@@ -47,9 +44,9 @@ public class EventLogServiceProxy {
 
 	    loggingService.log(message);
 	}
-	
+
 	else {
-	    
+
 	    System.out.println("Was not active!");
 	}
     }

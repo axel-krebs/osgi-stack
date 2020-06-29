@@ -4,7 +4,7 @@ import org.apache.felix.dm.DependencyManager;
 import org.junit.Test;
 import org.osgi.framework.BundleContext;
 
-import de.akrebs.testing.stackio.logbus.api.EventLogger;
+import de.akrebs.stackio.logbus.api.EventLogger;
 import junit.framework.TestCase;
 import static org.osgi.framework.FrameworkUtil.getBundle;
 
