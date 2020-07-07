@@ -1,0 +1,18 @@
+Bundle-Version: 1.1.1
+
+javac.source: 1.8
+javac.target: 1.8
+
+-buildpath: osgi.annotation; version=6.0.1
+-baseline: *
+-includeresource: lib/cache-api-1.1.1.jar;lib:=true
+Export-Package: \
+	javax.cache,\
+	javax.cache.annotation,\
+	javax.cache.configuration,\
+	javax.cache.event,\
+	javax.cache.expiry,\
+	javax.cache.integration,\
+	javax.cache.management,\
+	javax.cache.processor,\
+	javax.cache.spi

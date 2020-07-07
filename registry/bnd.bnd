@@ -1,0 +1,28 @@
+Bundle-Name: registry
+Bundle-Version: 1.0.1
+Export-Package: de.akrebs.stackio.registry.api
+
+javac.source: 1.8
+javac.target: 1.8
+
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	com.hazelcast;version=4.0
+-baseline: *
+-runfw: org.apache.felix.framework;version='[6.0.3,6.0.3]'
+-runee: JavaSE-1.8
+-resolve: auto
+-privatepackage: de.akrebs.stackio.registry.impl
+-includeresource: lib/hazelcast-4.0.1.jar;lib:=true
+-runrequires: \
+	bnd.identity;version='1.1.1';id='javax-cache',\
+	bnd.identity;version='2.13.3';id='org.apache.logging.log4j.api',\
+	bnd.identity;version='2.13.3';id='org.apache.logging.log4j.core'
+-runbundles: \
+	javax-cache;version=snapshot,\
+	javax-el;version=snapshot,\
+	javax.enterprise.cdi-api;version='[2.0.0,2.0.1)',\
+	javax.inject;version='[1.0.0,1.0.1)',\
+	javax.interceptor-api;version='[1.2.2,1.2.3)',\
+	org.apache.logging.log4j.api;version='[2.13.3,2.13.4)',\
+	org.apache.logging.log4j.core;version='[2.13.3,2.13.4)'

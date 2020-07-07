@@ -30,10 +30,11 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<osgi.core.version>7.0.0</osgi.core.version>
-		<osgi.enroute.version></osgi.enroute.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<osgi.core.version>7.0.0</osgi.core.version>
+		<osgi.enroute.version></osgi.enroute.version>
+		<mockito.core.version>2.28.2</mockito.core.version>
 		<vertx.core.version>3.9.1</vertx.core.version>
 	</properties>
 
@@ -60,46 +61,50 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13</version>
-			<scope>test</scope>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.13.3</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+		
 		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.10.19</version>
-			<scope>test</scope>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.13.3</version>
 		</dependency>
 
 	</dependencies>
 
 	<profiles>
-	
+
 		<profile>
 			<id>aLL</id>
 			<modules>
-				<module>../auth-api</module>
-				<module>../logbus-api</module>
-				<module>../logbus-client</module>
-				<module>../logbus-logstash</module>
-				<module>../logbus-gogo</module>
-				<module>../membus-api</module>
-				<module>../membus-hazelcast</module>
-				<module>../registry-api</module>
+				<module>../javax-cache</module>
+				<module>../javax-el</module>
+				<module>../javax-interceptor</module>
+				<module>../registry</module>
+				<module>../auth-ldap</module>
+				<module>../log-diag</module>
 				<module>../domain-controller</module>
 				<module>../api-gateway</module>
-				<module>../ws-gateway</module>
+				<module>../service-provider</module>
 			</modules>
 			<build>
 				<defaultGoal>bundle:bundle</defaultGoal>
 			</build>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>bnd-snapshots</id>
+					<url>https://bndtools.jfrog.io/bndtools/libs-snapshot/</url>
+					<layout>default</layout>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+				</pluginRepository>
+			</pluginRepositories>
 		</profile>
-		
+
 		<profile>
 			<id>deploy</id>
 			<build>

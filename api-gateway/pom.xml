@@ -14,8 +14,14 @@
 
 	<packaging>bundle</packaging>
 
-	<description>This module acts as a domain controller in a distributed microservices environment. 
-		Its tasks are to authenticate requests and route them to the registered service.</description>
+	<description>This module acts as inbound api gateway. It reads the configured (RESTful) web services
+	 and invokes the corresponding actions on the service bus.</description>
+
+	<properties>
+		<jetty.version>9.4.30.v20200611</jetty.version>
+		<jersey.version>2.31</jersey.version>
+		<jruby.version>9.2.11.0</jruby.version>
+	</properties>
 
 	<dependencies>
 
@@ -31,10 +37,56 @@
 			<version>4.6.0</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.jruby/jruby-complete -->
+		<dependency>
+			<groupId>org.jruby</groupId>
+			<artifactId>jruby-complete</artifactId>
+			<version>${jruby.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
+		<!-- <dependency> <groupId>org.codehaus.groovy</groupId> <artifactId>groovy-all</artifactId> 
+			<version>3.0.4</version> <type>pom</type> </dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<!-- <dependency> <groupId>org.testng</groupId> <artifactId>testng</artifactId> 
+			<version>7.1.0</version> <scope>test</scope> </dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.core.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
+
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<testResources>
+			<testResource>
+				<directory>src/test/resource</directory>
+			</testResource>
+		</testResources>
+
 		<plugins>
+
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
@@ -43,6 +95,14 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven</groupId>
+				<artifactId>maven-resource-plugin</artifactId>
+				<version>3.1.0</version>
+
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
@@ -50,10 +110,28 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Import-Package>*;resolution:=optional</Import-Package>
+						<Embed-Dependency>jruby-complete</Embed-Dependency>
+						<!-- <Include-Resource>{maven-resources}</Include-Resource> -->
 					</instructions>
 				</configuration>
 			</plugin>
+
 		</plugins>
+
 	</build>
+
+	<profiles>
+		<profile>
+			<id>maven-restlet</id>
+			<repositories>
+				<repository>
+					<id>maven-restlet</id>
+					<name>Public online Restlet repository</name>
+					<url>http://maven.restlet.org</url>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
 </project>

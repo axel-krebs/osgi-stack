@@ -1,1 +1,1 @@
-This project defines dependencies, the repository OBR to upload bundles, and the kubernets plugin for deployment.
+This project defines dependencies, the repository OBR to upload bundles, and the kubernetes plugin for deployment.

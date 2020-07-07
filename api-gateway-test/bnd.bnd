@@ -1,0 +1,47 @@
+Bundle-Version: 0.0.0.${tstamp}
+Private-Package: api_gateway_test
+
+# Discover and run all test cases annotated with the @RunWith annotation
+Test-Cases: ${classes;CONCRETE;ANNOTATED;org.junit.runner.RunWith}
+
+# Build dependencies 
+-buildpath: \
+	${junit},\
+	${mockito},\
+	osgi.annotation; version=6.0.1,\
+	osgi.core; version=6.0,\
+	osgi.cmpn; version=6.0
+
+javac.source: 1.8
+javac.target: 1.8
+
+# Needed for Mockito's mocking to work
+-runsystempackages.objenesis: sun.misc,sun.reflect
+
+# Use Felix by default
+-runfw: org.apache.felix.framework;version='[5.6.12,5.6.12]'
+-runvm: -ea
+-runee: JavaSE-1.8
+-resolve: manual
+-runrequires: \
+	bnd.identity;version='2.28.2';id='org.mockito.mockito-core',\
+	bnd.identity;version='5.1.1.202006162103';id='biz.aQute.junit',\
+	bnd.identity;version='1.0.0';id='api-gateway',\
+	bnd.identity;id='api-gateway-unsafe',\
+	bnd.identity;version='1.7.30';id='slf4j.simple'
+-runbundles: \
+	net.bytebuddy.byte-buddy;version='[1.10.5,1.10.6)',\
+	net.bytebuddy.byte-buddy-agent;version='[1.10.5,1.10.6)',\
+	org.mockito.mockito-core;version='[2.28.2,2.28.3)',\
+	org.objenesis;version='[2.6.0,2.6.1)',\
+	biz.aQute.junit;version='[5.1.1,5.1.2)',\
+	api-gateway;version=snapshot,\
+	biz.aQute.bndlib;version='[5.1.1,5.1.2)',\
+	org.apache.felix.dependencymanager;version='[4.6.0,4.6.1)',\
+	org.apache.felix.scr;version='[2.1.20,2.1.21)',\
+	org.jruby.jruby;version='[9.2.11,9.2.12)',\
+	org.osgi.service.cm;version='[1.6.0,1.6.1)',\
+	org.osgi.service.metatype;version='[1.4.0,1.4.1)',\
+	slf4j.api;version='[1.7.30,1.7.31)',\
+	api-gateway-unsafe;version=snapshot,\
+	slf4j.simple;version='[1.7.30,1.7.31)'

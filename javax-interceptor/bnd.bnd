@@ -1,0 +1,11 @@
+Bundle-Name: javax-interceptor
+Bundle-Version: 3.1.0
+
+javac.source: 1.8
+javac.target: 1.8
+
+-buildpath: osgi.annotation; version=6.0.1
+-baseline: *
+-includeresource: lib/javax.interceptor-api-3.1.jar;lib:=true
+
+Export-Package: javax.interceptor

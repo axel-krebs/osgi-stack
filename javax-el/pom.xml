@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.akrebs.stackio</groupId>
+		<artifactId>stack-builder</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<artifactId>javax-el</artifactId>
+
+	<packaging>jar</packaging>
+
+	<properties>
+		<javax.el.version>2.2</javax.el.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/javax.el/el-api -->
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>el-api</artifactId>
+			<version>${javax.el.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.2</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<artifactItems>
+						<artifactItem>
+							<groupId>javax.el</groupId>
+							<artifactId>el-api</artifactId>
+							<version>${javax.el.version}</version>
+							<type>jar</type>
+							<overWrite>false</overWrite>
+							<outputDirectory>${project.basedir}/lib</outputDirectory>
+							<!-- <destFileName>optional-new-name.jar</destFileName> -->
+						</artifactItem>
+					</artifactItems>
+					<!-- <outputDirectory>${project.build.directory}/wars</outputDirectory> -->
+					<overWriteReleases>false</overWriteReleases>
+					<overWriteSnapshots>true</overWriteSnapshots>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>biz.aQute.bnd</groupId>
+				<artifactId>bnd-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>bnd-process</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+</project>

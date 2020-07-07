@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite hostname="aexl-PC" name="test.api-gateway-test" target="file:/C:/Users/akrebs/git/osgi-stack/api-gateway-test/target/api-gateway-test.jar" timestamp="2020-07-01T21:29:00.086" framework="org.apache.felix.framework [0]" framework-version="5.6.12" tests="1" failures="0" errors="0" time="0.187">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.boot.class.path" value="C:\opt\jdk1.8.0_251\jre\lib\resources.jar;C:\opt\jdk1.8.0_251\jre\lib\rt.jar;C:\opt\jdk1.8.0_251\jre\lib\sunrsasign.jar;C:\opt\jdk1.8.0_251\jre\lib\jsse.jar;C:\opt\jdk1.8.0_251\jre\lib\jce.jar;C:\opt\jdk1.8.0_251\jre\lib\charsets.jar;C:\opt\jdk1.8.0_251\jre\lib\jfr.jar;C:\opt\jdk1.8.0_251\jre\classes"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="launcher.runpath" value="C:/Users/akrebs/git/osgi-stack/cnf/localrepo/org.apache.felix.framework/org.apache.felix.framework-5.6.12.jar,C:/Users/akrebs/git/osgi-stack/cnf/localrepo/biz.aQute.launcher/biz.aQute.launcher-5.1.1.jar"/>
+    <property name="java.runtime.version" value="1.8.0_251-b08"/>
+    <property name="launch.services" value="true"/>
+    <property name="launch.notificationPort" value="59692"/>
+    <property name="launcher.properties" value="C:\Users\akrebs\git\osgi-stack\api-gateway-test\target\launch8683412656582179416.properties"/>
+    <property name="user.name" value="akrebs"/>
+    <property name="launch.bundles" value="C:/Users/akrebs/git/osgi-stack/cnf/localrepo/net.bytebuddy.byte-buddy/net.bytebuddy.byte-buddy-1.10.5.jar,C:/Users/akrebs/git/osgi-stack/cnf/localrepo/net.bytebuddy.byte-buddy-agent/net.bytebuddy.byte-buddy-agent-1.10.5.jar,C:/Users/akrebs/git/osgi-stack/cnf/localrepo/org.mockito.mockito-core/org.mockito.mockito-core-2.28.2.jar,C:/Users/akrebs/git/osgi-stack/cnf/localrepo/org.objenesis/org.objenesis-2.6.0.jar,C:/Users/akrebs/git/osgi-stack/cnf/localrepo/biz.aQute.junit/biz.aQute.junit-5.1.1.jar,C:/Users/akrebs/git/osgi-stack/api-gateway/target/api-gateway.jar,C:/Users/akrebs/git/osgi-stack/cnf/localrepo/biz.aQute.bndlib/biz.aQute.bndlib-5.1.1.jar,C:/Users/akrebs/git/osgi-stack/cnf/localrepo/org.apache.felix.dependencymanager/org.apache.felix.dependencymanager-4.6.0.jar,C:/Users/akrebs/.m2/repository/org/apache/felix/org.apache.felix.scr/2.1.20/org.apache.felix.scr-2.1.20.jar,C:/Users/akrebs/git/osgi-stack/cnf/localrepo/org.jruby.jruby/org.jruby.jruby-9.2.11.jar,C:/Users/akrebs/git/osgi-stack/cnf/localrepo/org.osgi.service.cm/org.osgi.service.cm-1.6.0.jar,C:/Users/akrebs/git/osgi-stack/cnf/localrepo/org.osgi.service.metatype/org.osgi.service.metatype-1.4.0.jar,C:/Users/akrebs/git/osgi-stack/cnf/localrepo/slf4j.api/slf4j.api-1.7.30.jar,C:/Users/akrebs/git/osgi-stack/api-gateway-unsafe/target/api-gateway-unsafe.jar,C:/Users/akrebs/git/osgi-stack/cnf/localrepo/slf4j.simple/slf4j.simple-1.7.30.jar,C:/Users/akrebs/git/osgi-stack/api-gateway-test/target/api-gateway-test.jar"/>
+    <property name="user.language" value="de"/>
+    <property name="sun.boot.library.path" value="C:\opt\jdk1.8.0_251\jre\bin"/>
+    <property name="java.version" value="1.8.0_251"/>
+    <property name="user.timezone" value="Europe/Berlin"/>
+    <property name="launch.framework.restart.count" value="0"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.endorsed.dirs" value="C:\opt\jdk1.8.0_251\jre\lib\endorsed"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="launch.noreferences" value="false"/>
+    <property name="org.osgi.framework.storage.clean" value="onFirstInit"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="user.country" value="DE"/>
+    <property name="java.home" value="C:\opt\jdk1.8.0_251\jre"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="os.version" value="10.0"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.version" value="25.251-b08"/>
+    <property name="user.variant" value=""/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="user.script" value=""/>
+    <property name="user.home" value="C:\Users\akrebs"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.library.path" value="C:\opt\jdk1.8.0_251\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\opt\jdk1.8.0_251\jre\bin;C:/opt/jdk1.8.0_251/bin/../jre/bin/server;C:/opt/jdk1.8.0_251/bin/../jre/bin;C:/opt/jdk1.8.0_251/bin/../jre/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\opt\jdk1.8.0_201\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Git\cmd;C:\Users\akrebs\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\opt\Python37-32\;C:\opt\sbt\bin;C:\Users\akrebs\AppData\Local\Programs\Microsoft VS Code\bin;C:\opt\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\;C:\Users\akrebs\AppData\Roaming\npm;C:\opt\nodejs;C:\opt\gradle-5.2.1\bin;C:\opt\apache-maven-3.6.2\bin;C:\opt\heroku\bin;C:\Program Files\Docker Toolbox;C:\opt\openshift-origin-client-tools-v3.11.0-0cbc58b;;C:\WINDOWS\System32;;."/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="launch.framework.restart" value="false"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.java.command" value="aQute.launcher.pre.EmbeddedLauncher"/>
+    <property name="java.class.path" value="C:/Users/akrebs/AppData/Local/Temp/pre4374085144224967420.jar"/>
+    <property name="launch.name" value="bnd.bnd"/>
+    <property name="launch.timeout" value="0"/>
+    <property name="launch.keep" value="false"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.io.tmpdir" value="C:\Users\akrebs\AppData\Local\Temp\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="launch.activation.eager" value="false"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.ext.dirs" value="C:\opt\jdk1.8.0_251\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="user.dir" value="C:\Users\akrebs\git\osgi-stack\api-gateway-test"/>
+    <property name="launch.trace" value="false"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="org.osgi.framework.system.packages.extra" value="sun.misc,sun.reflect,org.osgi.framework;version=&quot;1.8&quot;,org.osgi.framework.dto;version=&quot;1.8&quot;;uses:=&quot;org.osgi.dto&quot;,org.osgi.framework.hooks.bundle;version=&quot;1.1&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.framework.hooks.resolver;version=&quot;1.0&quot;;uses:=&quot;org.osgi.framework.wiring&quot;,org.osgi.framework.hooks.service;version=&quot;1.1&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.framework.hooks.weaving;version=&quot;1.1&quot;;uses:=&quot;org.osgi.framework.wiring&quot;,org.osgi.framework.launch;version=&quot;1.2&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.framework.namespace;version=&quot;1.1&quot;;uses:=&quot;org.osgi.resource&quot;,org.osgi.framework.startlevel;version=&quot;1.0&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.framework.startlevel.dto;version=&quot;1.0&quot;;uses:=&quot;org.osgi.dto&quot;,org.osgi.framework.wiring;version=&quot;1.2&quot;;uses:=&quot;org.osgi.framework,org.osgi.resource&quot;,org.osgi.framework.wiring.dto;version=&quot;1.2&quot;;uses:=&quot;org.osgi.dto,org.osgi.resource.dto&quot;,org.osgi.resource;version=&quot;1.0&quot;,org.osgi.resource.dto;version=&quot;1.0&quot;;uses:=&quot;org.osgi.dto&quot;,org.osgi.service.packageadmin;version=&quot;1.2&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.service.startlevel;version=&quot;1.1&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.service.url;version=&quot;1.0&quot;,org.osgi.service.resolver;version=&quot;1.0&quot;;uses:=&quot;org.osgi.resource&quot;,org.osgi.util.tracker;version=&quot;1.5.1&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.dto;version=&quot;1.0&quot;"/>
+    <property name="launch.embedded" value="false"/>
+    <property name="launch.activators" value=""/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="launch.system.packages" value="sun.misc,sun.reflect,org.osgi.framework;version=&quot;1.8&quot;,org.osgi.framework.dto;version=&quot;1.8&quot;;uses:=&quot;org.osgi.dto&quot;,org.osgi.framework.hooks.bundle;version=&quot;1.1&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.framework.hooks.resolver;version=&quot;1.0&quot;;uses:=&quot;org.osgi.framework.wiring&quot;,org.osgi.framework.hooks.service;version=&quot;1.1&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.framework.hooks.weaving;version=&quot;1.1&quot;;uses:=&quot;org.osgi.framework.wiring&quot;,org.osgi.framework.launch;version=&quot;1.2&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.framework.namespace;version=&quot;1.1&quot;;uses:=&quot;org.osgi.resource&quot;,org.osgi.framework.startlevel;version=&quot;1.0&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.framework.startlevel.dto;version=&quot;1.0&quot;;uses:=&quot;org.osgi.dto&quot;,org.osgi.framework.wiring;version=&quot;1.2&quot;;uses:=&quot;org.osgi.framework,org.osgi.resource&quot;,org.osgi.framework.wiring.dto;version=&quot;1.2&quot;;uses:=&quot;org.osgi.dto,org.osgi.resource.dto&quot;,org.osgi.resource;version=&quot;1.0&quot;,org.osgi.resource.dto;version=&quot;1.0&quot;;uses:=&quot;org.osgi.dto&quot;,org.osgi.service.packageadmin;version=&quot;1.2&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.service.startlevel;version=&quot;1.1&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.service.url;version=&quot;1.0&quot;,org.osgi.service.resolver;version=&quot;1.0&quot;;uses:=&quot;org.osgi.resource&quot;,org.osgi.util.tracker;version=&quot;1.5.1&quot;;uses:=&quot;org.osgi.framework&quot;,org.osgi.dto;version=&quot;1.0&quot;"/>
+    <property name="java.specification.version" value="1.8"/>
+  </properties>
+  <testcase classname="api_gateway_test.ExampleIntegrationTest" name="testExample" time="0.130">
+    <system-out><![CDATA[org.apache.felix.framework
+net.bytebuddy.byte-buddy
+net.bytebuddy.byte-buddy-agent
+org.mockito.mockito-core
+org.objenesis
+biz.aQute.junit
+api-gateway
+biz.aQute.bndlib
+org.apache.felix.dependencymanager
+org.apache.felix.scr
+org.jruby.jruby
+org.osgi.service.cm
+org.osgi.service.metatype
+slf4j.api
+api-gateway-unsafe
+slf4j.simple
+api-gateway-test
+]]>
+    </system-out>
+  </testcase>
+</testsuite>

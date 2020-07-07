@@ -1,4 +1,5 @@
 Bundle-Name: api-gateway
+Bundle-Description: FRamework for handling API requests via HTTP
 Bundle-Version: 1.0.0
 Export-Package: de.akrebs.stackio.gateway.api
 Bundle-Activator: de.akrebs.stackio.gateway.api.osgi.Activator
@@ -11,7 +12,8 @@ javac.target: 1.8
 	osgi.core;version=6.0,\
 	osgi.cmpn;version=6.0,\
 	org.osgi.service.component,\
-	org.osgi.service.component.annotations
+	org.osgi.service.component.annotations,\
+	osgi.core;version=7.0.0
 	
 #-testpath: \
 #	​osgi.enroute.junit.wrapper;version=4.12.0, \
@@ -23,3 +25,22 @@ javac.target: 1.8
 	de.akrebs.stackio.gateway.api.impl,\
 	de.akrebs.stackio.gateway.api.osgi
 -resolve: auto
+-runrequires: \
+	bnd.identity;version='4.6.0';id='org.apache.felix.dependencymanager',\
+	bnd.identity;version='2.1.10';id='org.apache.felix.scr',\
+	bnd.identity;version='1.7.30';id='slf4j.api',\
+	bnd.identity;version='1.7.30';id='slf4j.simple',\
+	bnd.identity;version='9.2.11.0';id='org.jruby.jruby',\
+	bnd.identity;version='1.0.0';id='api-gateway-unsafe'
+-runbundles: \
+	biz.aQute.bndlib;version='[5.1.1,5.1.2)',\
+	org.apache.felix.dependencymanager;version='[4.6.0,4.6.1)',\
+	org.apache.felix.scr;version='[2.1.20,2.1.21)',\
+	org.osgi.service.cm;version='[1.6.0,1.6.1)',\
+	org.osgi.service.metatype;version='[1.4.0,1.4.1)',\
+	slf4j.api;version='[1.7.30,1.7.31)',\
+	slf4j.simple;version='[1.7.30,1.7.31)',\
+	org.jruby.jruby;version='[9.2.11,9.2.12)',\
+	api-gateway-unsafe;version=snapshot
+-includeresource: \
+	src/main/resources/router.rb

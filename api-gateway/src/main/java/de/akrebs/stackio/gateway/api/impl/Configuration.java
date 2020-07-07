@@ -8,9 +8,6 @@ import org.osgi.service.component.annotations.Deactivate;
 public class Configuration {
 
     volatile boolean standalone = true;
-    volatile int httpPort = 8080;
-    private String httpHost = "localhost";
-
 
     @Activate
     public void start() {
@@ -20,6 +17,7 @@ public class Configuration {
 
     @Deactivate
     public void stop() {
+
 	System.out.println("Stopping configuration..");
     }
 

@@ -1,0 +1,12 @@
+Bundle-Version: 2.2.0
+Export-Package: javax.el
+
+javac.source: 1.8
+javac.target: 1.8
+
+-buildpath: osgi.annotation; version=6.0.1
+-baseline: *
+-includeresource: lib/el-api-2.2.jar
+-runfw: org.apache.felix.framework;version='[6.0.3,6.0.3]'
+-runee: JavaSE-1.8
+Bundle-Name: javax-el

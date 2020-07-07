@@ -12,6 +12,9 @@
 
 	<artifactId>domain-controller</artifactId>
 
+	<description>This module acts as a domain controller in a distributed microservices environment. 
+		Its tasks are to authenticate requests and route them to the registered service.</description>
+
 	<packaging>bundle</packaging>
 
 	<dependencies>
@@ -29,21 +32,15 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.akrebs.stackio</groupId>
-			<artifactId>registry-api</artifactId>
-			<version>${pom.version}</version>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.gogo.runtime</artifactId>
+			<version>1.1.2</version>
 		</dependency>
 
 		<dependency>
 			<groupId>de.akrebs.stackio</groupId>
-			<artifactId>auth-api</artifactId>
-			<version>${pom.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>de.akrebs.stackio</groupId>
-			<artifactId>logbus-api</artifactId>
-			<version>${pom.version}</version>
+			<artifactId>registry</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 
 	</dependencies>
@@ -67,7 +64,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 					</instructions>
 				</configuration>
 			</plugin>

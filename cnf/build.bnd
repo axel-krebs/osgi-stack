@@ -2,7 +2,7 @@ junit: org.apache.servicemix.bundles.junit;version="[4.11,5)"
 mockito: \
 	org.mockito.mockito-core;version="[2.19,4)",\
 	org.objenesis;version="[2.1,3)"
-	testsrc = src/test/java
+	
 -plugin.1.Local: \
 	aQute.bnd.deployer.repository.LocalIndexedRepo; \
 		name=Local; \
@@ -20,12 +20,24 @@ mockito: \
         releaseUrl=https://repo.maven.apache.org/maven2/; \
         name="Central"
         
--plugin.4.Testing: \
+-plugin.4.Restlet = \
+	aQute.bnd.repository.maven.provider.MavenBndRepository; \
+        releaseUrl=http://maven.restlet.org/; \
+        name="Restlet"
+        
+-plugin.5.EclipseLocal: \
 	aQute.bnd.repository.p2.provider.P2Repository;\
 		name="Eclipse Local";\
-		url="file:///path/to/eclipse/";\
+		url="file:///C:/Users/akrebs/eclipse/eclipse/";\
 		location="${workspace}/cnf/cache/stable/EclipseLocal"
-        
+
+-plugin.6.EclipseBinTray: \
+	aQute.bnd.repository.osgi.OSGiRepository;\
+		name="Eclipse 2018-12";\
+	    locations="https://dl.bintray.com/bndtools/eclipse-repo/4.10/index.xml.gz";\
+	    poll.time=-1;\
+	    cache="${workspace}/cnf/cache/stable/Eclipse-2018-12"
+    
 -releaserepo: Release
 
 -remoteworkspace: true

@@ -1,2 +1,234 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="Release" increment="1592252054163"/>
+<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="Release" increment="1594118895603">
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="javax-el"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" value="1.0.0" type="Version"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="bundle-symbolic-name" value="javax-el"/>
+      <attribute name="bundle-version" value="1.0.0" type="Version"/>
+      <attribute name="version" value="1.0.0" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.el"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="bundle-version" value="1.0.0" type="Version"/>
+      <attribute name="osgi.wiring.bundle" value="javax-el"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="bundle-version" value="1.0.0" type="Version"/>
+      <attribute name="osgi.wiring.host" value="javax-el"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="size" value="31010" type="Long"/>
+      <attribute name="url" value="javax-el/javax-el-1.0.0.jar"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+      <attribute name="osgi.content" value="62FD86085388BD0C9D5F60F868640B69328661C27219DDDA6663C25F01267505"/>
+    </capability>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="registry"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" value="1.0.0" type="Version"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="bundle-symbolic-name" value="registry"/>
+      <attribute name="bundle-version" value="1.0.0" type="Version"/>
+      <attribute name="version" value="1.0.0" type="Version"/>
+      <attribute name="osgi.wiring.package" value="de.akrebs.stackio.registry.api"/>
+      <attribute name="bnd.hashes" value="-1144887154,-922850799,661742574,-1923478059" type="List&lt;Long&gt;"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="bundle-version" value="1.0.0" type="Version"/>
+      <attribute name="osgi.wiring.bundle" value="registry"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="bundle-version" value="1.0.0" type="Version"/>
+      <attribute name="osgi.wiring.host" value="registry"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="size" value="8790" type="Long"/>
+      <attribute name="url" value="registry/registry-1.0.0.jar"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+      <attribute name="osgi.content" value="06E1BDAC2395F9BEDEBF97FB51AAF195C4D09C6F9A7598A6DDFCDEFFFAD1A8DF"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <directive name="uses" value="de.akrebs.stackio.registry.api"/>
+      <attribute name="objectClass" value="de.akrebs.stackio.registry.api.DomainServiceRegistry" type="List&lt;String&gt;"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=com.hazelcast.config)"/>
+      <attribute name="osgi.wiring.package" value="com.hazelcast.config"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=com.hazelcast.core)"/>
+      <attribute name="osgi.wiring.package" value="com.hazelcast.core"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=de.akrebs.stackio.registry.api)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+      <attribute name="osgi.wiring.package" value="de.akrebs.stackio.registry.api"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.osgi.framework)"/>
+      <attribute name="osgi.wiring.package" value="org.osgi.framework"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="javax-cache"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" value="1.1.1" type="Version"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="javax.cache.configuration,javax.cache.integration,javax.cache.processor,javax.cache.spi"/>
+      <attribute name="bundle-symbolic-name" value="javax-cache"/>
+      <attribute name="bundle-version" value="1.1.1" type="Version"/>
+      <attribute name="version" value="1.1.1" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.cache"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="javax.cache,javax.enterprise.util"/>
+      <attribute name="bundle-symbolic-name" value="javax-cache"/>
+      <attribute name="bundle-version" value="1.1.1" type="Version"/>
+      <attribute name="version" value="1.1.1" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.annotation"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="javax.cache.event,javax.cache.expiry,javax.cache.integration"/>
+      <attribute name="bundle-symbolic-name" value="javax-cache"/>
+      <attribute name="bundle-version" value="1.1.1" type="Version"/>
+      <attribute name="version" value="1.1.1" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.configuration"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="javax.cache"/>
+      <attribute name="bundle-symbolic-name" value="javax-cache"/>
+      <attribute name="bundle-version" value="1.1.1" type="Version"/>
+      <attribute name="version" value="1.1.1" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.event"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="javax.cache.configuration"/>
+      <attribute name="bundle-symbolic-name" value="javax-cache"/>
+      <attribute name="bundle-version" value="1.1.1" type="Version"/>
+      <attribute name="version" value="1.1.1" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.expiry"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="javax.cache"/>
+      <attribute name="bundle-symbolic-name" value="javax-cache"/>
+      <attribute name="bundle-version" value="1.1.1" type="Version"/>
+      <attribute name="version" value="1.1.1" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.integration"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="javax.management"/>
+      <attribute name="bundle-symbolic-name" value="javax-cache"/>
+      <attribute name="bundle-version" value="1.1.1" type="Version"/>
+      <attribute name="version" value="1.1.1" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.management"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="javax.cache"/>
+      <attribute name="bundle-symbolic-name" value="javax-cache"/>
+      <attribute name="bundle-version" value="1.1.1" type="Version"/>
+      <attribute name="version" value="1.1.1" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.processor"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <directive name="uses" value="javax.cache,javax.cache.configuration"/>
+      <attribute name="bundle-symbolic-name" value="javax-cache"/>
+      <attribute name="bundle-version" value="1.1.1" type="Version"/>
+      <attribute name="version" value="1.1.1" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="bundle-version" value="1.1.1" type="Version"/>
+      <attribute name="osgi.wiring.bundle" value="javax-cache"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="bundle-version" value="1.1.1" type="Version"/>
+      <attribute name="osgi.wiring.host" value="javax-cache"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="size" value="42163" type="Long"/>
+      <attribute name="url" value="javax-cache/javax-cache-1.1.1.jar"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+      <attribute name="osgi.content" value="760825BBE86FF959AC7E1788956D4D5B34BA28B55D475C9E43F5E399F1DA347C"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.cache)"/>
+      <attribute name="osgi.wiring.package" value="javax.cache"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.cache.configuration)"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.configuration"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.cache.event)"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.event"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.cache.expiry)"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.expiry"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.cache.integration)"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.integration"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.cache.processor)"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.processor"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.cache.spi)"/>
+      <attribute name="osgi.wiring.package" value="javax.cache.spi"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.enterprise.util)"/>
+      <attribute name="osgi.wiring.package" value="javax.enterprise.util"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.management)"/>
+      <attribute name="osgi.wiring.package" value="javax.management"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="javax-el"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" value="2.2.0" type="Version"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="bundle-symbolic-name" value="javax-el"/>
+      <attribute name="bundle-version" value="2.2.0" type="Version"/>
+      <attribute name="version" value="2.2.0" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.el"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="bundle-version" value="2.2.0" type="Version"/>
+      <attribute name="osgi.wiring.bundle" value="javax-el"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="bundle-version" value="2.2.0" type="Version"/>
+      <attribute name="osgi.wiring.host" value="javax-el"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="size" value="31012" type="Long"/>
+      <attribute name="url" value="javax-el/javax-el-2.2.0.jar"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+      <attribute name="osgi.content" value="3124000881FFC958595F8B72812B9BD82BE34E97476B2630079D8F4BF28E07D7"/>
+    </capability>
+  </resource>
+</repository>

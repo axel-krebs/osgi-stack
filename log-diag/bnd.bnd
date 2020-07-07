@@ -1,0 +1,21 @@
+Bundle-Name: logbus-logstash
+Bundle-Version: 1.0.0
+Bundle-Activator: de.akrebs.testing.stackio.logbus.logstash.osgi.Activator
+
+-buildpath: \
+	osgi.core;version=6.0,\
+	osgi.annotation;version=6.0.1,\
+	osgi.cmpn;version=6.0
+
+-testpath: \
+	${junit}
+
+javac.source: 1.8
+javac.target: 1.8
+
+-runfw: org.apache.felix.framework;version='[6.0.3,6.0.3]'
+-runee: JavaSE-1.8
+-runproperties: 
+-resolve: auto
+-privatepackage: de.akrebs.testing.stackio.logbus.logstash.osgi
+Export-Package: de.akrebs.testing.stackio.logbus.logstash.api
