@@ -28,7 +28,8 @@ javac.target: 1.8
 	bnd.identity;id='biz.aQute.launchpad',\
 	bnd.identity;version='4.12.0.201610141744';id='osgi.enroute.junit.wrapper',\
 	bnd.identity;version='1.0.1';id='registry',\
-	bnd.identity;version='1.1.1';id='javax-cache'
+	bnd.identity;version='1.1.1';id='javax-cache',\
+	bnd.identity;version='1.0.0';id='api-gateway-unsafe'
 -privatepackage: \
 	de.akrebs.stackio.provider.impl,\
 	de.akrebs.stackio.provider.osgi,\
@@ -52,4 +53,5 @@ javac.target: 1.8
 	api-gateway-unsafe;version=snapshot,\
 	org.apache.log4j;version='[1.2.15,1.2.16)',\
 	org.apache.logging.log4j.api;version='[2.13.3,2.13.4)',\
-	registry;version=snapshot
+	registry;version=snapshot,\
+	com.diffplug.osgi.extension.sun.misc;version='[0.0.0,0.0.1)'

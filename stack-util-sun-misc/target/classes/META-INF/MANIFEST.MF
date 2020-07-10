@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1594400009915
+Bundle-Description: Establish distributable memory in OSGi environment
+ . Dependencies defined for all OSGi bundles.
+Bundle-ManifestVersion: 2
+Bundle-Name: api-gateway-unsafe
+Bundle-SCM: developer-connection="https://github.com/axel-krebs/osgi-s
+ tack.git/stack-util-sun-misc",tag=HEAD
+Bundle-SymbolicName: api-gateway-unsafe
+Bundle-Version: 1.0.0
+Created-By: 1.8.0_251 (Oracle Corporation)
+Export-Package: sun.misc;version="1.0.0"
+Fragment-Host: system.bundle; extension:=framework
+Tool: Bnd-5.1.1.202006162103
+

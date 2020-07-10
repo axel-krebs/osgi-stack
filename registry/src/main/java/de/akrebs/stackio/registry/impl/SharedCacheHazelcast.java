@@ -45,6 +45,7 @@ public class SharedCacheHazelcast implements DomainServiceRegistry {
 	System.out.println("SharedCacheHazelcast: register service: "+p);
 	
 	// TODO publish distributed object
+	
 	return null;
     }
 

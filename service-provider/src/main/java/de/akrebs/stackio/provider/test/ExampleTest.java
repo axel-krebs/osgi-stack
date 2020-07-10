@@ -24,6 +24,7 @@ public class ExampleTest {
     @Test
     public void testList() {
 	try (Launchpad launchpad = builder
+		.bundles("api-gateway-unsafe;version=snapshot")
 		.bundles("biz.aQute.bndlib;version='[5.1.1,5.1.2)'")
 		.bundles("slf4j.api;version='[1.7.30,1.7.31)'")
 		.bundles("slf4j.simple;version='[1.7.30,1.7.31)'")
@@ -34,7 +35,7 @@ public class ExampleTest {
 		.bundles("org.osgi.service.metatype;version='[1.4.0,1.4.1)'")
 		.bundles("registry;version=1.0.1")
 		.bundles("javax-cache;version=1.1.1")
-		.bundles("javax-el;version=snapshot")
+		.bundles("javax-el;version='[2.0.0,3)")
 		.bundles("javax.enterprise.cdi-api;version='[2.0.0,2.0.1)'")
 		.bundles("javax.inject;version='[1.0.0,1.0.1)'")
 		.bundles("javax.interceptor-api;version='[1.2.2,1.2.3)'")

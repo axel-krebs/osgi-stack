@@ -16,7 +16,7 @@
 
 	<properties>
 
-		<!-- Unit testss can only be run by BND tools! -->
+		<!-- Unit tests can only be run by BND tools! -->
 		<skipTests>true</skipTests>
 	</properties>
 

@@ -6,6 +6,7 @@ biz.aQute.bnd:biz.aQute.launcher:5.1.1
 biz.aQute.bnd:biz.aQute.tester:4.3.1
 biz.aQute.bnd:biz.aQute.tester:5.1.1
 biz.aQute.bnd:biz.aQute.launchpad:5.1.1
+com.diffplug.osgi:com.diffplug.osgi.extension.sun.misc:0.0.0
 com.hazelcast:hazelcast:4.0.1
 io.netty:netty-buffer:4.1.50.Final
 io.netty:netty-codec:4.1.50.Final
