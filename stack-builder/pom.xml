@@ -62,6 +62,18 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.service.component</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.dependencymanager</artifactId>
+			<version>4.6.0</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
 			<version>2.13.3</version>
@@ -88,6 +100,7 @@
 				<module>../log-diag</module>
 				<module>../domain-controller</module>
 				<module>../api-gateway</module>
+				<module>../intermediate-processor</module>
 				<module>../service-provider</module>
 				<module>../stack-util-sun-misc</module>
 			</modules>
@@ -107,7 +120,7 @@
 		</profile>
 
 		<profile>
-			<id>deploy</id>
+			<id>image</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -126,6 +139,7 @@
 				</plugins>
 			</build>
 		</profile>
+
 	</profiles>
 
 </project>

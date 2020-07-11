@@ -1,9 +1,15 @@
-Bundle-Name: api-gateway-unsafe
+Bundle-Name: stack-util-sun-misc
+Bundle-Description: Simply export the su.misc package to make it available in bundles needing \
+	it.
 Bundle-ManifestVersion: 1.0.0
-Bundle-SymbolicName: api-gateway-unsafe
+Bundle-SymbolicName: stack-util-sun-misc
 Bundle-Version: 1.0.0
 Fragment-Host: system.bundle; extension:=framework
-Export-Package: sun.misc
+Export-Package: \
+	sun.misc,\
+	javax.xml.bind,\
+	javax.xml.bind.annotation;version=2.5,\
+	javax.xml.bind.annotation.adapters;version=2.5
 
 javac.source: 1.8
 javac.target: 1.8

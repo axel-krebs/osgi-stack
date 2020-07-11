@@ -1,8 +1,11 @@
 Bundle-Name: api-gateway
 Bundle-Description: FRamework for handling API requests via HTTP
 Bundle-Version: 1.0.0
-Export-Package: de.akrebs.stackio.gateway.api
-Bundle-Activator: de.akrebs.stackio.gateway.api.osgi.Activator
+Export-Package: de.akrebs.stackio.api_gateway.pub
+Import-Package: \
+	javax.ws.rs*,\
+	*
+Bundle-Activator: de.akrebs.stackio.api_gateway.osgi.Activator
 
 javac.source: 1.8
 javac.target: 1.8
@@ -12,8 +15,7 @@ javac.target: 1.8
 	osgi.core;version=6.0,\
 	osgi.cmpn;version=6.0,\
 	org.osgi.service.component,\
-	org.osgi.service.component.annotations,\
-	osgi.core;version=7.0.0
+	org.osgi.service.component.annotations
 	
 #-testpath: \
 #	​osgi.enroute.junit.wrapper;version=4.12.0, \
@@ -22,16 +24,24 @@ javac.target: 1.8
 -runfw: org.apache.felix.framework;version='[6.0.3,6.0.3]'
 -runee: JavaSE-1.8
 -privatepackage: \
-	de.akrebs.stackio.gateway.api.impl,\
-	de.akrebs.stackio.gateway.api.osgi
--resolve: auto
+	de.akrebs.stackio.api_gateway.impl,\
+	de.akrebs.stackio.api_gateway.osgi
+-resolve: manual
 -runrequires: \
 	bnd.identity;version='4.6.0';id='org.apache.felix.dependencymanager',\
 	bnd.identity;version='2.1.10';id='org.apache.felix.scr',\
+	bnd.identity;version='1.0.0';id='stack-util-sun-misc',\
 	bnd.identity;version='1.7.30';id='slf4j.api',\
 	bnd.identity;version='1.7.30';id='slf4j.simple',\
-	bnd.identity;version='9.2.11.0';id='org.jruby.jruby',\
-	bnd.identity;version='1.0.0';id='api-gateway-unsafe'
+	bnd.identity;version='4.0.0';id='javax.servlet-api',\
+	bnd.identity;version='2.1.6';id='jakarta.ws.rs-api',\
+	bnd.identity;version='2.31.0';id='org.glassfish.jersey.core.jersey-common',\
+	bnd.identity;version='2.31.0';id='org.glassfish.jersey.core.jersey-server',\
+	bnd.identity;version='1.0.3';id='org.glassfish.hk2.osgi-resource-locator',\
+	bnd.identity;version='2.31.0';id='org.glassfish.jersey.core.jersey-client',\
+	bnd.identity;version='2.31.0';id='org.glassfish.jersey.containers.jersey-container-servlet-core',\
+	bnd.identity;version='1.4.0.201802012106';id='org.osgi.service.component',\
+	bnd.identity;version='4.0.18';id='org.apache.felix.http.jetty'
 -runbundles: \
 	biz.aQute.bndlib;version='[5.1.1,5.1.2)',\
 	org.apache.felix.dependencymanager;version='[4.6.0,4.6.1)',\
@@ -40,7 +50,18 @@ javac.target: 1.8
 	org.osgi.service.metatype;version='[1.4.0,1.4.1)',\
 	slf4j.api;version='[1.7.30,1.7.31)',\
 	slf4j.simple;version='[1.7.30,1.7.31)',\
-	org.jruby.jruby;version='[9.2.11,9.2.12)',\
-	api-gateway-unsafe;version=snapshot
--includeresource: \
-	src/main/resources/router.rb
+	stack-util-sun-misc;version=snapshot,\
+	javax.servlet-api;version='[4.0.0,4.0.1)',\
+	jakarta.ws.rs-api;version='[2.1.6,2.1.7)',\
+	javax.annotation-api;version='[1.3.2,1.3.3)',\
+	javax.inject;version='[1.0.0,1.0.1)',\
+	org.glassfish.hk2.osgi-resource-locator;version='[1.0.3,1.0.4)',\
+	org.glassfish.jersey.core.jersey-client;version='[2.31.0,2.31.1)',\
+	org.glassfish.jersey.core.jersey-common;version='[2.31.0,2.31.1)',\
+	org.glassfish.jersey.core.jersey-server;version='[2.31.0,2.31.1)',\
+	org.glassfish.jersey.containers.jersey-container-servlet-core;version='[2.31.0,2.31.1)',\
+	org.osgi.service.component;version='[1.4.0,1.4.1)',\
+	org.apache.felix.http.jetty;version='[4.0.18,4.0.19)',\
+	org.apache.felix.http.servlet-api;version='[1.1.2,1.1.3)'
+
+	-includeresource: src/main/resources/static/index.html

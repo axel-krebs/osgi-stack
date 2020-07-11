@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="Release" increment="1594118895603">
+<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="Release" increment="1594466301028">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="javax-el"/>
@@ -26,6 +26,36 @@
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
       <attribute name="osgi.content" value="62FD86085388BD0C9D5F60F868640B69328661C27219DDDA6663C25F01267505"/>
     </capability>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="stack-util-sun-misc"/>
+      <attribute name="type" value="osgi.fragment"/>
+      <attribute name="version" value="1.0.0" type="Version"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="bundle-symbolic-name" value="stack-util-sun-misc"/>
+      <attribute name="bundle-version" value="1.0.0" type="Version"/>
+      <attribute name="version" value="1.0.0" type="Version"/>
+      <attribute name="osgi.wiring.package" value="sun.misc"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="bundle-symbolic-name" value="stack-util-sun-misc"/>
+      <attribute name="bundle-version" value="1.0.0" type="Version"/>
+      <attribute name="version" value="1.0.0" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.xml.bind"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="size" value="582" type="Long"/>
+      <attribute name="url" value="stack-util-sun-misc/stack-util-sun-misc-1.0.0.jar"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+      <attribute name="osgi.content" value="9E32379EBDD435AE2DFFEA20263557AF9EBDA99B1C976B97638D2869B9BE661C"/>
+    </capability>
+    <requirement namespace="osgi.wiring.host">
+      <directive name="filter" value="(osgi.wiring.host=system.bundle)"/>
+      <directive name="extension" value="framework"/>
+      <directive name="cardinality" value="multiple"/>
+    </requirement>
   </resource>
   <resource>
     <capability namespace="osgi.identity">
@@ -202,6 +232,30 @@
     </requirement>
     <requirement namespace="osgi.ee">
       <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="api-gateway-unsafe"/>
+      <attribute name="type" value="osgi.fragment"/>
+      <attribute name="version" value="1.0.0" type="Version"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="bundle-symbolic-name" value="api-gateway-unsafe"/>
+      <attribute name="bundle-version" value="1.0.0" type="Version"/>
+      <attribute name="version" value="1.0.0" type="Version"/>
+      <attribute name="osgi.wiring.package" value="sun.misc"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="size" value="512" type="Long"/>
+      <attribute name="url" value="api-gateway-unsafe/api-gateway-unsafe-1.0.0.jar"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+      <attribute name="osgi.content" value="B778A3CC866C22210F84A711F1A7B0792EE5D704EE516C26D72BE5AEB3A1B7AB"/>
+    </capability>
+    <requirement namespace="osgi.wiring.host">
+      <directive name="filter" value="(osgi.wiring.host=system.bundle)"/>
+      <directive name="extension" value="framework"/>
+      <directive name="cardinality" value="multiple"/>
     </requirement>
   </resource>
   <resource>
