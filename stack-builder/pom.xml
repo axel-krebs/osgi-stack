@@ -35,7 +35,8 @@
 		<osgi.core.version>7.0.0</osgi.core.version>
 		<osgi.enroute.version></osgi.enroute.version>
 		<mockito.core.version>2.28.2</mockito.core.version>
-		<vertx.core.version>3.9.1</vertx.core.version>
+		<slf4j.api.version>1.7.30</slf4j.api.version>
+		<log4j.version>2.13.3</log4j.version>
 	</properties>
 
 	<dependencies>
@@ -74,15 +75,27 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.api.version}</version>
+		</dependency>
+		
+		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
-			<version>2.13.3</version>
+			<version>${log4j.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<version>2.13.3</version>
+			<version>${log4j.version}</version>
 		</dependency>
 
 	</dependencies>
@@ -90,8 +103,9 @@
 	<profiles>
 
 		<profile>
-			<id>aLL</id>
+			<id>bundle-them-all</id>
 			<modules>
+				<module>../stack-util-sun-misc</module>
 				<module>../javax-cache</module>
 				<module>../javax-el</module>
 				<module>../javax-interceptor</module>
@@ -100,12 +114,12 @@
 				<module>../log-diag</module>
 				<module>../domain-controller</module>
 				<module>../api-gateway</module>
+				<module>../iot-gateway</module>
 				<module>../intermediate-processor</module>
 				<module>../service-provider</module>
-				<module>../stack-util-sun-misc</module>
 			</modules>
 			<build>
-				<defaultGoal>bundle:bundle</defaultGoal>
+				<defaultGoal>verify</defaultGoal>
 			</build>
 			<pluginRepositories>
 				<pluginRepository>
@@ -120,7 +134,7 @@
 		</profile>
 
 		<profile>
-			<id>image</id>
+			<id>make-image</id>
 			<build>
 				<plugins>
 					<plugin>

@@ -12,7 +12,7 @@
 	<artifactId>stack-util-sun-misc</artifactId>
 
 	<packaging>jar</packaging>
-	
+
 	<properties>
 		<skipTests>true</skipTests><!-- for now.. -->
 	</properties>
@@ -39,6 +39,8 @@
 
 	<build>
 
+		<finalName>${project.artifactId}</finalName>
+
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<resources>
 			<resource>
@@ -62,7 +64,11 @@
 					<execution>
 						<goals>
 							<goal>bnd-process</goal>
+							<goal>bnd-process-tests</goal>
 						</goals>
+						<configuration>
+							<testCases>junit4</testCases>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>

@@ -1,11 +1,16 @@
 Bundle-Name: service-provider
 Bundle-Version: 1.0.0
 Export-Package: de.akrebs.stackio.provider.api
-Test-Cases: de.akrebs.stackio.provider.test.ExampleTest
+Test-Cases: de.akrebs.stackio.provider.test.DomainRegistryTest
 
 javac.source: 1.8
 javac.target: 1.8
 
+-privatepackage: \
+	de.akrebs.stackio.provider.impl,\
+	de.akrebs.stackio.provider.osgi,\
+	de.akrebs.stackio.provider.test
+	
 -buildpath: \
 	osgi.annotation;version=6.0.1,\
 	osgi.core;version=5.0.0,\
@@ -16,7 +21,10 @@ javac.target: 1.8
 -testpath: \
 	junit-jupiter-api;version=5.6,\
 	junit-jupiter-engine;version=5.6,\
-	biz.aQute.launchpad;version=5.1.1
+	biz.aQute.launchpad;version=5.1.1,\
+	slf4j.api;version='[1.7.30,1.7.31)',\
+	slf4j.simple;version='[1.7.30,1.7.31)',\
+	org.apache.log4j;version='[1.2.15,1.2.16)'
 
 -runfw: org.apache.felix.framework;version='[6.0.3,6.0.3]'
 -runee: JavaSE-1.8
@@ -27,18 +35,15 @@ javac.target: 1.8
 	bnd.identity;version='1.7.30';id='slf4j.simple',\
 	bnd.identity;id='biz.aQute.launchpad',\
 	bnd.identity;version='4.12.0.201610141744';id='osgi.enroute.junit.wrapper',\
-	bnd.identity;version='1.0.1';id='registry',\
 	bnd.identity;version='1.1.1';id='javax-cache',\
-	bnd.identity;version='1.0.0';id='api-gateway-unsafe'
--privatepackage: \
-	de.akrebs.stackio.provider.impl,\
-	de.akrebs.stackio.provider.osgi,\
-	de.akrebs.stackio.provider.test
+	bnd.identity;id='registry',\
+	bnd.identity;id='stack-util-sun-misc'
 -runbundles: \
 	biz.aQute.bndlib;version='[5.1.1,5.1.2)',\
 	biz.aQute.launchpad;version='[5.1.1,5.1.2)',\
-	javax-cache;version=snapshot,\
-	javax-el;version=snapshot,\
+	com.hazelcast;version='[4.0.1,4.0.2)',\
+	javax-cache;version='[1.1.1,1.1.2)',\
+	javax-el;version='[2.2.0,2.2.1)',\
 	javax.enterprise.cdi-api;version='[2.0.0,2.0.1)',\
 	javax.inject;version='[1.0.0,1.0.1)',\
 	javax.interceptor-api;version='[1.2.2,1.2.3)',\
@@ -48,10 +53,7 @@ javac.target: 1.8
 	org.osgi.service.cm;version='[1.6.0,1.6.1)',\
 	org.osgi.service.metatype;version='[1.4.0,1.4.1)',\
 	osgi.enroute.junit.wrapper;version='[4.12.0,4.12.1)',\
+	registry;version='[1.0.0,1.0.1)',\
 	slf4j.api;version='[1.7.30,1.7.31)',\
 	slf4j.simple;version='[1.7.30,1.7.31)',\
-	api-gateway-unsafe;version=snapshot,\
-	org.apache.log4j;version='[1.2.15,1.2.16)',\
-	org.apache.logging.log4j.api;version='[2.13.3,2.13.4)',\
-	registry;version=snapshot,\
-	com.diffplug.osgi.extension.sun.misc;version='[0.0.0,0.0.1)'
+	stack-util-sun-misc;version='[1.0.0,1.0.1)'

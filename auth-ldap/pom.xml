@@ -12,7 +12,7 @@
 
 	<artifactId>auth-ldap</artifactId>
 
-	<packaging>bundle</packaging>
+	<packaging>jar</packaging>
 
 	<dependencies>
 
@@ -26,29 +26,20 @@
 
 	<build>
 
+		<finalName>${project.artifactId}</finalName>
+
 		<plugins>
 
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<version>4.2.1</version>
-				<extensions>true</extensions>
-				<configuration>
-					<instructions>
-						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-						<Import-Package>*;resolution:=optional</Import-Package>
-						<!-- <Include-Resource>{maven-resources}</Include-Resource> -->
-					</instructions>
-				</configuration>
+				<groupId>biz.aQute.bnd</groupId>
+				<artifactId>bnd-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>bnd-process</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 		</plugins>

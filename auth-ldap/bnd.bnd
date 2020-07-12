@@ -1,6 +1,8 @@
 Bundle-Name: auth-api
 Bundle-Version: 1.0.0
 Export-Package: de.akrebs.stackio.auth
+Import-Package: \
+	*;resolution:=optional
 
 javac.source: 1.8
 javac.target: 1.8

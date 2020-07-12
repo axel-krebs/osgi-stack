@@ -12,7 +12,7 @@
 
 	<artifactId>api-gateway</artifactId>
 
-	<packaging>bundle</packaging>
+	<packaging>jar</packaging>
 
 	<description>This module acts as inbound api gateway for RESTful web services.</description>
 
@@ -63,6 +63,8 @@
 
 	<build>
 
+		<finalName>${project.artifactId}</finalName>
+
 		<sourceDirectory>src/main/java</sourceDirectory>
 
 		<resources>
@@ -82,35 +84,12 @@
 		<plugins>
 
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.0</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<version>4.2.1</version>
-				<extensions>true</extensions>
-				<configuration>
-					<instructions>
-						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-						<Import-Package>
-							javax.ws.rs*,
-						</Import-Package>
-						<Include-Resource>{maven-resources}</Include-Resource>
-					</instructions>
-				</configuration>
-			</plugin>
-
-			<plugin>
 				<groupId>biz.aQute.bnd</groupId>
 				<artifactId>bnd-maven-plugin</artifactId>
+				<version>5.1.1</version>
 				<executions>
 					<execution>
+						<id>process-all</id>
 						<goals>
 							<goal>bnd-process</goal>
 						</goals>

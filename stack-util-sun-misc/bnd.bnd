@@ -7,7 +7,7 @@ Bundle-Version: 1.0.0
 Fragment-Host: system.bundle; extension:=framework
 Export-Package: \
 	sun.misc,\
-	javax.xml.bind,\
+	javax.xml.bind;version=2.5,\
 	javax.xml.bind.annotation;version=2.5,\
 	javax.xml.bind.annotation.adapters;version=2.5
 
