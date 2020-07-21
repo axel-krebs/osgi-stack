@@ -1,6 +1,6 @@
 Bundle-Name: api-gateway
 Bundle-Description: Framework for handling API (restful) requests via HTTP
-Bundle-Version: 1.0.0
+Bundle-Version: ${project.version}
 Export-Package: de.akrebs.stackio.api_gateway.pub
 Import-Package: \
 	javax.ws.rs;version='[2.1.0,3.0.0)',\

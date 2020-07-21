@@ -11,6 +11,8 @@
 	<version>1.0.0</version>
 
 	<packaging>pom</packaging>
+	
+	<description>Install Maven dependencies of bundle in docker-local repository</description>
 
 	<properties>
 		<javaee.version>8.0.1</javaee.version>

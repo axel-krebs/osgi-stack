@@ -1,18 +1,23 @@
 FROM axel9691/karaf
 LABEL MAINTAINER Axel Krebs <axel.krebs@online.de>
 
-# Start karaf right away 
-RUN exec /opt/karaf/bin/karaf
-
+# arguments taken from Maven pom plugin configuration
 ARG JAR_FILE
 ARG GROUP_ID
 ARG ARTIFFACT_ID
 ARG ARTIFACT_VERSION
 ARG UTIL_JAR
 ARG UTIL_VERSION
+
+#ENV values  taken from karaf docker image, see FROM
 USER $KARAF_USER
+
+#ENV KARAF_OPTS -Dxyz
+
+# Start karaf right from start since it's creating instance files ('server mode')
+RUN exec /opt/karaf/bin/start 
+
 RUN cd ~
-COPY install.xml . 
 COPY target/${JAR_FILE} .
 COPY target/${UTIL_JAR} .
 RUN mvn install:install-file -Dfile=${JAR_FILE} -DgroupId=${GROUP_ID} -DartifactId=${ARTIFFACT_ID} -Dversion=${ARTIFACT_VERSION} -Dpackaging=jar
@@ -20,16 +25,12 @@ RUN mvn install:install-file -Dfile=${UTIL_JAR} -DgroupId=de.akrebs.stackio -Dar
 
 
 # install dependencies; optionally copy user settings.xml to .m2 directory
-RUN mvn -f install.xml verify
+#COPY install.xml . 
+#RUN mvn -f install.xml verify
 
-COPY target/feature/feature.xml /opt/karaf/deploy
+COPY target/feature/feature.xml $KARAF_BASE/deploy
 
-# install application
-#COPY target/api-gateway.kar /opt/karaf/deploy
+EXPOSE 1099 8081 8888 44444
 
-EXPOSE 1099 8081 8181 44444
-
-USER root
-
-#CMD ["/bin/bash"]
-CMD ["/opt/karaf/bin/karaf", "run"]
+CMD ["/bin/bash"]
+#CMD ["/opt/karaf/bin/karaf", "run"]
