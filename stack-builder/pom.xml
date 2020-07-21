@@ -85,7 +85,7 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>${slf4j.api.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
@@ -134,7 +134,10 @@
 		</profile>
 
 		<profile>
-			<id>make-image</id>
+			<id>create-api-gateway</id>
+			<modules>
+				<module>../api-gateway</module>
+			</modules>
 			<build>
 				<plugins>
 					<plugin>

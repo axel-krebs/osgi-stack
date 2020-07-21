@@ -1,15 +1,22 @@
 Bundle-Name: stack-util-sun-misc
-Bundle-Description: Simply export the su.misc package to make it available in bundles needing \
+Bundle-Description: Simply export the sun.misc package to make it available in bundles needing \
 	it.
 Bundle-ManifestVersion: 1.0.0
 Bundle-SymbolicName: stack-util-sun-misc
 Bundle-Version: 1.0.0
-Fragment-Host: system.bundle; extension:=framework
+Fragment-Host: system.bundle; extension:="framework"
+Import-Package: \
+	javax.xml.bind,\
+	javax.xml.bind.annotation,\
+	javax.xml.bind.annotation.adapters,\
+	sun.misc,\
+	*
 Export-Package: \
 	sun.misc,\
 	javax.xml.bind;version=2.5,\
 	javax.xml.bind.annotation;version=2.5,\
 	javax.xml.bind.annotation.adapters;version=2.5
+Test-Cases: de.akrebs.stackio.util.sun.misc.LoadUnsafeTest
 
 javac.source: 1.8
 javac.target: 1.8
@@ -25,3 +32,4 @@ javac.target: 1.8
 -runfw: org.apache.felix.framework;version='[6.0.3,6.0.3]'
 -runee: JavaSE-1.8
 -resolve: auto
+-privatepackage: de.akrebs.stackio.util.sun.misc

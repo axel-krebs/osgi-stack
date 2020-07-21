@@ -12,15 +12,19 @@
 
 	<artifactId>api-gateway</artifactId>
 
+	<version>1.1.0</version>
+
 	<packaging>jar</packaging>
 
-	<description>This module acts as inbound api gateway for RESTful web services.</description>
+	<description>This module acts as inbound api gateway for RESTful web
+		services.</description>
 
 	<properties>
 		<javaee.version>8.0.1</javaee.version>
-		<restlet.version>2.4.0</restlet.version>
-		<jersey.version>2.31</jersey.version>
+		<!-- <restlet.version>2.4.0</restlet.version> <jersey.version>2.31</jersey.version> -->
 		<jetty.version>9.4.30.v20200611</jetty.version>
+		<rxjava.version>2.2.19</rxjava.version>
+		<docker.buildArg.noCache>true</docker.buildArg.noCache>
 	</properties>
 
 	<dependencies>
@@ -32,31 +36,31 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>jakarta.ws.rs</groupId>
+			<artifactId>jakarta.ws.rs-api</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+
 		<!-- <dependency> <groupId>org.restlet.jee</groupId> <artifactId>org.restlet</artifactId> 
 			<version>${restlet.version}</version> <scope>provided</scope> </dependency> -->
 
 		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-server</artifactId>
-			<version>${jersey.version}</version>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-servlet-core</artifactId>
-			<version>${jersey.version}</version>
+			<groupId>io.reactivex.rxjava2</groupId>
+			<artifactId>rxjava</artifactId>
+			<version>${rxjava.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-common</artifactId>
-			<version>${jersey.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.glassfish.hk2</groupId>
-			<artifactId>hk2</artifactId>
-			<version>2.6.1</version>
+			<groupId>de.akrebs.stackio</groupId>
+			<artifactId>stack-util-sun-misc</artifactId>
+			<version>1.0.0</version>
 		</dependency>
 
 	</dependencies>
@@ -97,15 +101,154 @@
 				</executions>
 			</plugin>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<archive>
+						<index>true</index>
+						<manifestFile>${project.basedir}/target/classes/META-INF/MANIFEST.MF
+						</manifestFile>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.karaf.tooling</groupId>
+				<artifactId>karaf-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<enableGeneration>true</enableGeneration>
+				</configuration>
+				<executions>
+					<execution>
+						<id>generate-features-file</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>features-generate-descriptor</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.2</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<artifactItems>
+						<artifactItem>
+							<groupId>de.akrebs.stackio</groupId>
+							<artifactId>stack-util-sun-misc</artifactId>
+							<version>1.0.0</version>
+							<type>jar</type>
+							<overWrite>true</overWrite>
+							<outputDirectory>${project.basedir}/target</outputDirectory>
+							<destFileName>stack-util-sun-misc.jar</destFileName>
+						</artifactItem>
+					</artifactItems>
+					<!-- <outputDirectory>${project.build.directory}/wars</outputDirectory> -->
+					<overWriteReleases>false</overWriteReleases>
+					<overWriteSnapshots>true</overWriteSnapshots>
+				</configuration>
+			</plugin>
+
 		</plugins>
 
 	</build>
 
 	<profiles>
 		<profile>
+			<id>docker</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.spotify</groupId>
+						<artifactId>dockerfile-maven-plugin</artifactId>
+						<version>1.4.13</version>
+						<executions>
+							<execution>
+								<id>build-image</id>
+								<goals>
+									<goal>build</goal>
+								</goals>
+								<configuration>
+									<buildArgs>
+										<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+										<GROUP_ID>${project.groupId}</GROUP_ID>
+										<ARTIFFACT_ID>${project.artifactId}</ARTIFFACT_ID>
+										<ARTIFACT_VERSION>${project.version}</ARTIFACT_VERSION>
+										<UTIL_JAR>stack-util-sun-misc.jar</UTIL_JAR>
+										<UTIL_VERSION>1.0.0</UTIL_VERSION>
+									</buildArgs>
+									<tag>${project.version}</tag>
+								</configuration>
+							</execution>
+							<execution>
+								<id>tag-image</id>
+								<goals>
+									<goal>tag</goal>
+								</goals>
+								<configuration>
+									<tag>${project.version}</tag>
+									<tag>latest</tag>
+								</configuration>
+							</execution>
+							<execution>
+								<id>push-image</id>
+								<goals>
+									<goal>push</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<!-- <noCache>true</noCache> -->
+							<pullNewerImage>true</pullNewerImage>
+							<repository>axel9691/api-gateway</repository>
+							<username>axel9691</username>
+							<password>Axel#9691</password>
+							<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>k8s</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>io.fabric8</groupId>
+						<artifactId>fabric8-maven-plugin</artifactId>
+						<version>4.4.1</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>resource</goal>
+									<goal>build</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
 			<id>maven-restlet</id>
 			<activation>
-				<activeByDefault>true</activeByDefault>
+				<activeByDefault>false</activeByDefault>
 			</activation>
 			<repositories>
 				<repository>
@@ -115,5 +258,7 @@
 				</repository>
 			</repositories>
 		</profile>
+
 	</profiles>
+
 </project>

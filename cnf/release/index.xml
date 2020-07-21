@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="Release" increment="1594466301028">
+<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="Release" increment="1594645753007">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="javax-el"/>
@@ -42,14 +42,26 @@
     <capability namespace="osgi.wiring.package">
       <attribute name="bundle-symbolic-name" value="stack-util-sun-misc"/>
       <attribute name="bundle-version" value="1.0.0" type="Version"/>
-      <attribute name="version" value="1.0.0" type="Version"/>
+      <attribute name="version" value="2.5.0" type="Version"/>
       <attribute name="osgi.wiring.package" value="javax.xml.bind"/>
     </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="bundle-symbolic-name" value="stack-util-sun-misc"/>
+      <attribute name="bundle-version" value="1.0.0" type="Version"/>
+      <attribute name="version" value="2.5.0" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.xml.bind.annotation"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="bundle-symbolic-name" value="stack-util-sun-misc"/>
+      <attribute name="bundle-version" value="1.0.0" type="Version"/>
+      <attribute name="version" value="2.5.0" type="Version"/>
+      <attribute name="osgi.wiring.package" value="javax.xml.bind.annotation.adapters"/>
+    </capability>
     <capability namespace="osgi.content">
-      <attribute name="size" value="582" type="Long"/>
+      <attribute name="size" value="2885" type="Long"/>
       <attribute name="url" value="stack-util-sun-misc/stack-util-sun-misc-1.0.0.jar"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
-      <attribute name="osgi.content" value="9E32379EBDD435AE2DFFEA20263557AF9EBDA99B1C976B97638D2869B9BE661C"/>
+      <attribute name="osgi.content" value="9ABD0C86053DDA9EBBEBA70BC4508EF7ED5C35AEFEFD2D37E736183909D17927"/>
     </capability>
     <requirement namespace="osgi.wiring.host">
       <directive name="filter" value="(osgi.wiring.host=system.bundle)"/>

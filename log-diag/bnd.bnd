@@ -3,7 +3,9 @@ Bundle-Version: 1.0.0
 Bundle-Activator: de.akrebs.testing.stackio.logbus.logstash.osgi.Activator
 Export-Package: de.akrebs.testing.stackio.log_diag.api
 -includeresource: lib/logstash-logback-encoder-6.4.jar
--privatepackage: de.akrebs.testing.stackio.log_diag.osgi
+-privatepackage: \
+	de.akrebs.testing.stackio.log_diag.osgi,\
+	de.akrebs.testing.stackio.log_diag.impl
 
 -buildpath: \
 	osgi.core;version=6.0,\

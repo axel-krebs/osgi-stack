@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="api-gateway">
+    <feature name="api-gateway" description="api-gateway" version="1.1.0">
+        <details>This module acts as inbound api gateway for RESTful web
+		services.</details>
+        <bundle>mvn:de.akrebs.stackio/api-gateway/1.0.0</bundle>
+    </feature>
+</features>
