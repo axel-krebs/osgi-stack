@@ -14,6 +14,7 @@ USER $KARAF_USER
 
 #ENV KARAF_OPTS -Dxyz
 
+# overwrite configuration inherited from parent image
 COPY etc/* $KARAF_BASE/etc
 
 # Start karaf right from start since it's creating instance files ('server mode')
@@ -21,13 +22,12 @@ RUN exec /opt/karaf/bin/start
 
 RUN cd ~
 COPY target/${JAR_FILE} .
-#COPY target/${UTIL_JAR} .
 RUN mvn install:install-file -Dfile=${JAR_FILE} -DgroupId=${GROUP_ID} -DartifactId=${ARTIFFACT_ID} -Dversion=${ARTIFACT_VERSION} -Dpackaging=jar
-#RUN mvn install:install-file -Dfile=${UTIL_JAR} -DgroupId=de.akrebs.stackio -DartifactId=stack-util-sun-misc -Dversion=${UTIL_VERSION} -Dpackaging=jar
 
+# Actual deployment
 COPY target/feature/feature.xml $KARAF_BASE/deploy
 
 EXPOSE 1099 8081 8765 44444
 
-CMD ["/bin/bash"]
-#CMD ["/opt/karaf/bin/karaf", "run"]
+# Run Karaf on container start-up
+CMD ["/opt/karaf/bin/karaf", "run"]

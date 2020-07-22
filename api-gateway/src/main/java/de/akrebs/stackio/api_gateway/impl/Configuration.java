@@ -28,7 +28,7 @@ public class Configuration {
     @Activate
     public void start() {
 
-	System.out.println("Starting configuration..");
+	logger.log(LogService.LOG_INFO, "Starting API-GATEWAY configuration..");
 
 	HttpContext httpContext = createHttpContextFromConfig(httpService);
 
@@ -36,11 +36,11 @@ public class Configuration {
 	    addStaticResources(httpService, httpContext);
 	    addDynamicMapping(httpService, httpContext);
 	} catch (NamespaceException e) {
-	    // TODO log
-	    e.printStackTrace();
+
+	    logger.log(LogService.LOG_ERROR, e.getMessage());
 	} catch (ServletException e) {
-	    // TODO log
-	    e.printStackTrace();
+
+	    logger.log(LogService.LOG_ERROR, e.getMessage());
 	}
 
     }
@@ -48,19 +48,19 @@ public class Configuration {
     @Deactivate
     public void stop() {
 
-	System.out.println("Stopping configuration..");
+	logger.log(LogService.LOG_INFO, "Stopping API-GATEWAY configuration..");
 
 	removeStaticResources();
 
 	removeDynamicMapping();
     }
 
-    private void removeStaticResources() {
-	httpService.unregister("/");
-    }
-
     private void addStaticResources(HttpService httpService, HttpContext httpContext) throws NamespaceException {
 	httpService.registerResources("/", "static/index.html", httpContext);
+    }
+
+    private void removeStaticResources() {
+	httpService.unregister("/");
     }
 
     private void addDynamicMapping(HttpService httpService, HttpContext httpContext)
