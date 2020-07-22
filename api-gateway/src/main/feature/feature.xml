@@ -4,8 +4,7 @@
         <details>This module acts as inbound api gateway for RESTful web services.</details>
     	<feature>scr</feature>
     	<feature>http</feature>
-    	<feature>blueprint-web</feature>
-    	<feature>jetty</feature>	
+    	<feature>jetty</feature>
         <bundle start-level="85">mvn:de.akrebs.stackio/api-gateway/1.1.0</bundle>
     </feature>
 </features>

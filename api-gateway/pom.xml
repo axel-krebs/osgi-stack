@@ -57,12 +57,6 @@
 			<version>${rxjava.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>de.akrebs.stackio</groupId>
-			<artifactId>stack-util-sun-misc</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -132,7 +126,7 @@
 				</executions>
 			</plugin>
 
-			<plugin>
+<!-- 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<version>3.1.2</version>
@@ -157,11 +151,11 @@
 							<destFileName>stack-util-sun-misc.jar</destFileName>
 						</artifactItem>
 					</artifactItems>
-					<!-- <outputDirectory>${project.build.directory}/wars</outputDirectory> -->
+					<outputDirectory>${project.build.directory}/wars</outputDirectory>
 					<overWriteReleases>false</overWriteReleases>
 					<overWriteSnapshots>true</overWriteSnapshots>
 				</configuration>
-			</plugin>
+			</plugin> -->
 
 		</plugins>
 

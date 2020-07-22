@@ -109,10 +109,8 @@
 				<module>../javax-cache</module>
 				<module>../javax-el</module>
 				<module>../javax-interceptor</module>
-				<module>../registry</module>
-				<module>../auth-ldap</module>
 				<module>../log-diag</module>
-				<module>../domain-controller</module>
+				<module>../compute-grid</module>
 				<module>../api-gateway</module>
 				<module>../iot-gateway</module>
 				<module>../intermediate-processor</module>
@@ -131,30 +129,6 @@
 					</releases>
 				</pluginRepository>
 			</pluginRepositories>
-		</profile>
-
-		<profile>
-			<id>create-api-gateway</id>
-			<modules>
-				<module>../api-gateway</module>
-			</modules>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>io.fabric8</groupId>
-						<artifactId>fabric8-maven-plugin</artifactId>
-						<version>4.4.1</version>
-						<executions>
-							<execution>
-								<goals>
-									<goal>resource</goal>
-									<goal>build</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 
 	</profiles>
