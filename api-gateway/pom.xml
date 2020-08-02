@@ -5,8 +5,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>stack-builder</artifactId>
 		<groupId>de.akrebs.stackio</groupId>
+		<artifactId>service-root</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
@@ -14,41 +14,24 @@
 
 	<version>1.1.0</version>
 
-	<packaging>jar</packaging>
+	<packaging>bundle</packaging>
 
 	<description>This module acts as inbound api gateway for RESTful web
 		services.</description>
 
 	<properties>
-		<javaee.version>8.0.1</javaee.version>
-		<!-- <restlet.version>2.4.0</restlet.version> <jersey.version>2.31</jersey.version> -->
 		<jetty.version>9.4.30.v20200611</jetty.version>
 		<rxjava.version>2.2.19</rxjava.version>
 		<docker.buildArg.noCache>true</docker.buildArg.noCache>
+		<karaf.version>4.2.9</karaf.version>
 	</properties>
 
 	<dependencies>
 
 		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<version>${javaee.version}</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>jakarta.ws.rs</groupId>
 			<artifactId>jakarta.ws.rs-api</artifactId>
 			<version>2.1.2</version>
-		</dependency>
-
-		<!-- <dependency> <groupId>org.restlet.jee</groupId> <artifactId>org.restlet</artifactId> 
-			<version>${restlet.version}</version> <scope>provided</scope> </dependency> -->
-
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>2.0.1.Final</version>
 		</dependency>
 
 		<dependency>
@@ -57,56 +40,19 @@
 			<version>${rxjava.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>de.akrebs.stackio</groupId>
+			<artifactId>location-service</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
 
 		<finalName>${project.artifactId}</finalName>
 
-		<sourceDirectory>src/main/java</sourceDirectory>
-
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-			</resource>
-		</resources>
-
-		<testSourceDirectory>src/test/java</testSourceDirectory>
-
-		<testResources>
-			<testResource>
-				<directory>src/test/resource</directory>
-			</testResource>
-		</testResources>
-
 		<plugins>
-
-			<plugin>
-				<groupId>biz.aQute.bnd</groupId>
-				<artifactId>bnd-maven-plugin</artifactId>
-				<version>5.1.1</version>
-				<executions>
-					<execution>
-						<id>process-all</id>
-						<goals>
-							<goal>bnd-process</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.2.0</version>
-				<configuration>
-					<archive>
-						<index>true</index>
-						<manifestFile>${project.basedir}/target/classes/META-INF/MANIFEST.MF
-						</manifestFile>
-					</archive>
-				</configuration>
-			</plugin>
 
 			<plugin>
 				<groupId>org.apache.karaf.tooling</groupId>
@@ -126,14 +72,47 @@
 				</executions>
 			</plugin>
 
-<!-- 			<plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>bundle-manifest</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>manifest</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<supportedProjectTypes>
+						<supportedProjectType>jar</supportedProjectType>
+						<supportedProjectType>bundle</supportedProjectType>
+					</supportedProjectTypes>
+					<instructions>
+						<Export-Package>de.akrebs.stackio.api_gateway.pub</Export-Package>
+						<Export-Package>de.akrebs.stackio.api_gateway.osgi</Export-Package>
+						<Import-Package>de.akrebs.stackio.api_gateway.osgi</Import-Package>
+						<Import-Package>javax.ws.rs;version='[2.1.0,3.0.0)',*</Import-Package>
+						<Private-Package>de.akrebs.stackio.api_gateway.impl</Private-Package>
+						<Bundle-Activator>de.akrebs.stackio.api_gateway.osgi.Activator</Bundle-Activator>
+						<Include-Resource>src/main/resources</Include-Resource>
+					</instructions>
+					<archive>
+						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<version>3.1.2</version>
 				<executions>
 					<execution>
 						<id>copy</id>
-						<phase>package</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>copy</goal>
 						</goals>
@@ -143,19 +122,34 @@
 					<artifactItems>
 						<artifactItem>
 							<groupId>de.akrebs.stackio</groupId>
-							<artifactId>stack-util-sun-misc</artifactId>
+							<artifactId>location-service</artifactId>
 							<version>1.0.0</version>
 							<type>jar</type>
-							<overWrite>true</overWrite>
-							<outputDirectory>${project.basedir}/target</outputDirectory>
-							<destFileName>stack-util-sun-misc.jar</destFileName>
+							<overWrite>false</overWrite>
+							<outputDirectory>${project.basedir}/lib</outputDirectory>
+							<destFileName>location-service.jar</destFileName>
 						</artifactItem>
 					</artifactItems>
-					<outputDirectory>${project.build.directory}/wars</outputDirectory>
+					<!-- <outputDirectory>${project.build.directory}/wars</outputDirectory> -->
 					<overWriteReleases>false</overWriteReleases>
 					<overWriteSnapshots>true</overWriteSnapshots>
 				</configuration>
-			</plugin> -->
+			</plugin>
+
+			<plugin>
+				<groupId>biz.aQute.bnd</groupId>
+				<artifactId>bnd-maven-plugin</artifactId>
+				<version>5.1.1</version>
+				<executions>
+					<execution>
+						<id>process-all</id>
+						<phase>package</phase>
+						<goals>
+							<goal>bnd-process</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
 		</plugins>
 
@@ -173,6 +167,7 @@
 						<executions>
 							<execution>
 								<id>build-image</id>
+								<phase>package</phase>
 								<goals>
 									<goal>build</goal>
 								</goals>
@@ -182,7 +177,8 @@
 										<GROUP_ID>${project.groupId}</GROUP_ID>
 										<ARTIFFACT_ID>${project.artifactId}</ARTIFFACT_ID>
 										<ARTIFACT_VERSION>${project.version}</ARTIFACT_VERSION>
-										<UTIL_JAR>stack-util-sun-misc.jar</UTIL_JAR>
+										<UTIL_JAR>location-service.jar</UTIL_JAR>
+										<UTIL_NAME>location-service</UTIL_NAME>
 										<UTIL_VERSION>1.0.0</UTIL_VERSION>
 									</buildArgs>
 									<tag>${project.version}</tag>

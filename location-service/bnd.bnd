@@ -1,0 +1,4 @@
+Export-Package: de.akrebs.stackio.provider.api
+Bundle-Name: location-service
+Bundle-Description: 1.0.0
+Bundle-Version: 1.0.0

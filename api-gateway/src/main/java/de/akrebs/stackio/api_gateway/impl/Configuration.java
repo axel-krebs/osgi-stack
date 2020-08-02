@@ -14,6 +14,8 @@ import org.osgi.service.http.HttpService;
 import org.osgi.service.http.NamespaceException;
 import org.osgi.service.log.LogService;
 
+import de.akrebs.stackio.provider.api.LocationService;
+
 @Component(immediate = true, service = Configuration.class)
 public class Configuration {
 

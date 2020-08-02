@@ -1,0 +1,51 @@
+Bundle-Name: location-service-db
+Bundle-Version: 1.0.0
+Bundle-Description: Implementation for location services
+
+javac.source: 1.8
+javac.target: 1.8
+
+-buildpath: \
+	osgi.annotation;version=6.0.1,\
+	osgi.core;version=5.0.0,\
+	biz.aQute.junit;version=5.1.1,\
+	biz.aQute.launchpad,\
+	osgi.cmpn;version=6.0
+	
+-testpath: \
+	junit-jupiter-api;version=5.6,\
+	junit-jupiter-engine;version=5.6,\
+	biz.aQute.launchpad;version=5.1.1,\
+	slf4j.api;version='[1.7.30,1.7.31)',\
+	slf4j.simple;version='[1.7.30,1.7.31)',\
+	org.apache.log4j;version='[1.2.15,1.2.16)'
+
+-runfw: org.apache.felix.framework;version='[6.0.3,6.0.3]'
+-runee: JavaSE-1.8
+-runrequires: \
+	bnd.identity;version='4.6.0';id='org.apache.felix.dependencymanager',\
+	bnd.identity;version='2.1.10';id='org.apache.felix.scr',\
+	bnd.identity;version='1.7.30';id='slf4j.api',\
+	bnd.identity;version='1.7.30';id='slf4j.simple',\
+	bnd.identity;id='biz.aQute.launchpad',\
+	bnd.identity;version='4.12.0.201610141744';id='osgi.enroute.junit.wrapper',\
+	bnd.identity;version='1.1.1';id='javax-cache',\
+	bnd.identity;id='stack-util-sun-misc'
+-runbundles: \
+	biz.aQute.bndlib;version='[5.1.1,5.1.2)',\
+	biz.aQute.launchpad;version='[5.1.1,5.1.2)',\
+	javax-cache;version='[1.1.1,1.1.2)',\
+	javax-el;version='[2.2.0,2.2.1)',\
+	javax.enterprise.cdi-api;version='[2.0.0,2.0.1)',\
+	javax.inject;version='[1.0.0,1.0.1)',\
+	javax.interceptor-api;version='[1.2.2,1.2.3)',\
+	org.apache.felix.dependencymanager;version='[4.6.0,4.6.1)',\
+	org.apache.felix.scr;version='[2.1.20,2.1.21)',\
+	org.apache.servicemix.bundles.junit;version='[4.13.0,4.13.1)',\
+	org.osgi.service.cm;version='[1.6.0,1.6.1)',\
+	org.osgi.service.metatype;version='[1.4.0,1.4.1)',\
+	osgi.enroute.junit.wrapper;version='[4.12.0,4.12.1)',\
+	slf4j.api;version='[1.7.30,1.7.31)',\
+	slf4j.simple;version='[1.7.30,1.7.31)',\
+	stack-util-sun-misc;version='[1.0.0,1.0.1)'
+-privatepackage: de.akrebs.stackio.provider.impl

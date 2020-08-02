@@ -5,28 +5,13 @@
 
 	<parent>
 		<groupId>de.akrebs.stackio</groupId>
-		<artifactId>stack-builder</artifactId>
+		<artifactId>service-root</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
 	<artifactId>javax-el</artifactId>
 
 	<packaging>jar</packaging>
-
-	<properties>
-		<javax.el.version>2.2</javax.el.version>
-	</properties>
-
-	<dependencies>
-
-		<!-- https://mvnrepository.com/artifact/javax.el/el-api -->
-		<dependency>
-			<groupId>javax.el</groupId>
-			<artifactId>el-api</artifactId>
-			<version>${javax.el.version}</version>
-		</dependency>
-
-	</dependencies>
 
 	<build>
 
@@ -51,7 +36,7 @@
 					<artifactItems>
 						<artifactItem>
 							<groupId>javax.el</groupId>
-							<artifactId>el-api</artifactId>
+							<artifactId>javax.el-api</artifactId>
 							<version>${javax.el.version}</version>
 							<type>jar</type>
 							<overWrite>false</overWrite>
@@ -68,6 +53,7 @@
 			<plugin>
 				<groupId>biz.aQute.bnd</groupId>
 				<artifactId>bnd-maven-plugin</artifactId>
+				<version>5.1.1</version>
 				<executions>
 					<execution>
 						<goals>

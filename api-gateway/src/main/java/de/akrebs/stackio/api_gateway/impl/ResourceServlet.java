@@ -3,20 +3,29 @@ package de.akrebs.stackio.api_gateway.impl;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.AsyncContext;
+import javax.servlet.AsyncEvent;
+import javax.servlet.AsyncListener;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import javax.servlet.AsyncContext;
-import javax.servlet.AsyncEvent;
-import javax.servlet.AsyncListener;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
+import de.akrebs.stackio.provider.api.Location;
+import de.akrebs.stackio.provider.api.LocationService;
+
+@Component(immediate = true)
 public class ResourceServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
     private String ID;
+
+    @Reference(name = "location-service", service = LocationService.class)
+    LocationService locationService;
 
     public ResourceServlet(String iD) {
 	super();
@@ -31,6 +40,8 @@ public class ResourceServlet extends HttpServlet {
 	writer.flush();
 	asyncCtx.addListener(new AsyncListener() {
 
+	    Location loc;
+
 	    @Override
 	    public void onTimeout(AsyncEvent event) throws IOException {
 		// TODO Auto-generated method stub
@@ -39,8 +50,8 @@ public class ResourceServlet extends HttpServlet {
 
 	    @Override
 	    public void onStartAsync(AsyncEvent event) throws IOException {
-		// TODO Auto-generated method stub
 		System.out.println("Starting async!");
+		loc = locationService.find("Something");
 	    }
 
 	    @Override
@@ -52,6 +63,7 @@ public class ResourceServlet extends HttpServlet {
 	    @Override
 	    public void onComplete(AsyncEvent event) throws IOException {
 		System.out.println("COMPLETE!");
+		writer.write("Location was: " + loc);
 	    }
 	}, req, resp);
 	asyncCtx.complete();

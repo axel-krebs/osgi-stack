@@ -1,0 +1,202 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.akrebs.stackio</groupId>
+		<artifactId>service-root</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<artifactId>location-service-db</artifactId>
+
+	<packaging>bundle</packaging>
+
+	<properties>
+		<!-- specific props -->
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>de.akrebs.stackio</groupId>
+			<artifactId>location-service</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+
+			<plugin>
+				<groupId>biz.aQute.bnd</groupId>
+				<artifactId>bnd-maven-plugin</artifactId>
+				<version>5.1.1</version>
+				<executions>
+					<execution>
+						<id>process-all</id>
+						<phase>package</phase>
+						<goals>
+							<goal>bnd-process</goal>
+							<goal>bnd-process-tests</goal>
+						</goals>
+						<configuration>
+							<testCases>useTestCasesHeader</testCases>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.2</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<artifactItems>
+						<artifactItem>
+							<groupId>de.akrebs.stackio</groupId>
+							<artifactId>location-service</artifactId>
+							<version>1.0.0</version>
+							<type>jar</type>
+							<overWrite>false</overWrite>
+							<outputDirectory>${project.basedir}/lib</outputDirectory>
+							<destFileName>location-service.jar</destFileName>
+						</artifactItem>
+					</artifactItems>
+					<!-- <outputDirectory>${project.build.directory}/wars</outputDirectory> -->
+					<overWriteReleases>false</overWriteReleases>
+					<overWriteSnapshots>true</overWriteSnapshots>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>bundle-manifest</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>manifest</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<supportedProjectTypes>
+						<supportedProjectType>jar</supportedProjectType>
+						<supportedProjectType>bundle</supportedProjectType>
+					</supportedProjectTypes>
+					<instructions>
+						<Import-Package>de.akrebs.stackio.provider.api</Import-Package>
+						<Private-Package>de.akrebs.stackio.provider.impl</Private-Package>
+					</instructions>
+					<archive>
+						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.karaf.tooling</groupId>
+				<artifactId>karaf-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>generate-features-file</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>features-generate-descriptor</goal>
+						</goals>
+						<configuration>
+							<enableGeneration>true</enableGeneration>
+							<finalName>location-service</finalName>
+							<aggregateFeatures>false</aggregateFeatures>
+							<markRuntimeScopeAsDependency>false</markRuntimeScopeAsDependency>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>docker</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.spotify</groupId>
+						<artifactId>dockerfile-maven-plugin</artifactId>
+						<version>1.4.13</version>
+						<executions>
+							<execution>
+								<id>build-image</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+								<configuration>
+									<buildArgs>
+										<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+										<GROUP_ID>${project.groupId}</GROUP_ID>
+										<ARTIFACT_ID>${project.artifactId}</ARTIFACT_ID>
+										<ARTIFACT_VERSION>${project.version}</ARTIFACT_VERSION>
+										<SERVICE_JAR>location-service.jar</SERVICE_JAR>
+										<SERVICE_JAR_GROUP_ID>de.akrebs.stackio</SERVICE_JAR_GROUP_ID>
+										<SERVICE_JAR_ARTIFACT_ID>location-service</SERVICE_JAR_ARTIFACT_ID>
+										<SERVICE_JAR_VERSION>1.0.0</SERVICE_JAR_VERSION>
+									</buildArgs>
+									<tag>${project.version}</tag>
+									<noCache>true</noCache>
+								</configuration>
+							</execution>
+							<execution>
+								<id>tag-image</id>
+								<phase>package</phase>
+								<goals>
+									<goal>tag</goal>
+								</goals>
+								<configuration>
+									<tag>${project.version}</tag>
+									<tag>latest</tag>
+								</configuration>
+							</execution>
+							<execution>
+								<id>push-image</id>
+								<phase>install</phase>
+								<goals>
+									<goal>push</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<!-- <noCache>true</noCache> -->
+							<pullNewerImage>true</pullNewerImage>
+							<repository>axel9691/${project.artifactId}</repository>
+							<username>axel9691</username>
+							<password>Axel#9691</password>
+							<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
