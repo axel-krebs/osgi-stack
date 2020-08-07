@@ -24,7 +24,7 @@ public class ResourceServlet extends HttpServlet {
 
     private String ID;
 
-    @Reference(name = "location-service", service = LocationService.class)
+    @Reference
     LocationService locationService;
 
     public ResourceServlet(String iD) {

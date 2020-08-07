@@ -24,6 +24,21 @@
 			<groupId>de.akrebs.stackio</groupId>
 			<artifactId>location-service</artifactId>
 			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.karaf</groupId>
+			<artifactId>org.apache.karaf.util</artifactId>
+			<version>${karaf.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.karaf.cellar</groupId>
+			<artifactId>org.apache.karaf.cellar.core</artifactId>
+			<version>${cellar.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 	</dependencies>
@@ -78,7 +93,6 @@
 							<destFileName>location-service.jar</destFileName>
 						</artifactItem>
 					</artifactItems>
-					<!-- <outputDirectory>${project.build.directory}/wars</outputDirectory> -->
 					<overWriteReleases>false</overWriteReleases>
 					<overWriteSnapshots>true</overWriteSnapshots>
 				</configuration>
@@ -88,23 +102,17 @@
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
 				<extensions>true</extensions>
-				<executions>
-					<execution>
-						<id>bundle-manifest</id>
-						<phase>process-classes</phase>
-						<goals>
-							<goal>manifest</goal>
-						</goals>
-					</execution>
-				</executions>
 				<configuration>
 					<supportedProjectTypes>
 						<supportedProjectType>jar</supportedProjectType>
 						<supportedProjectType>bundle</supportedProjectType>
 					</supportedProjectTypes>
+					<_dsannotations>*</_dsannotations>
 					<instructions>
-						<Import-Package>de.akrebs.stackio.provider.api</Import-Package>
-						<Private-Package>de.akrebs.stackio.provider.impl</Private-Package>
+						<Import-Package>de.akrebs.stackio.provider.api,de.akrebs.stackio.provider.osgi,*</Import-Package>
+						<Export-Package>de.akrebs.stackio.provider.osgi</Export-Package>
+						<Bundle-Activator>de.akrebs.stackio.provider.osgi.Activator</Bundle-Activator>
+						<Private-Package>de.akrebs.stackio.provider.impl,org.apache.karaf.util.*</Private-Package>
 					</instructions>
 					<archive>
 						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
@@ -126,8 +134,10 @@
 						<configuration>
 							<enableGeneration>true</enableGeneration>
 							<finalName>location-service</finalName>
-							<aggregateFeatures>false</aggregateFeatures>
+							<aggregateFeatures>true</aggregateFeatures>
+							<includeTransitiveDependency>false</includeTransitiveDependency>
 							<markRuntimeScopeAsDependency>false</markRuntimeScopeAsDependency>
+							<startLevel>80</startLevel>
 						</configuration>
 					</execution>
 				</executions>

@@ -1,0 +1,153 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.akrebs.stackio</groupId>
+
+	<artifactId>location-service-feature</artifactId>
+
+	<!-- TODO: version must be same as deployables -->
+	<version>1.0.0</version>
+
+	<packaging>pom</packaging>
+
+	<description>Install Maven dependencies of bundle in docker-local repository</description>
+
+	<properties>
+		<karaf.version>4.2.9</karaf.version>
+		<cellar.version>4.2.0</cellar.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.apache.karaf.features</groupId>
+			<artifactId>framework</artifactId>
+			<version>${karaf.version}</version>
+			<type>kar</type>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.karaf.cellar</groupId>
+			<artifactId>apache-karaf-cellar</artifactId>
+			<version>${cellar.version}</version>
+			<classifier>features</classifier>
+			<type>xml</type>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.karaf</groupId>
+			<artifactId>org.apache.karaf.util</artifactId>
+			<version>${karaf.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.karaf.cellar</groupId>
+			<artifactId>org.apache.karaf.cellar.core</artifactId>
+			<version>${cellar.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-artifacts</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attach-artifact</goal>
+						</goals>
+						<configuration>
+							<artifacts>
+								<artifact>
+									<file>feature.xml</file>
+									<classifier>features</classifier>
+									<type>xml</type>
+								</artifact>
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.karaf.tooling</groupId> -->
+			<!-- <artifactId>karaf-maven-plugin</artifactId> -->
+			<!-- <version>${karaf.version}</version> -->
+			<!-- <extensions>true</extensions> -->
+			<!-- <configuration> -->
+			<!-- <enableGeneration>false</enableGeneration> -->
+			<!-- </configuration> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <id>verify-feature-xml</id> -->
+			<!-- <phase>verify</phase> -->
+			<!-- <goals> -->
+			<!-- <goal>verify</goal> -->
+			<!-- </goals> -->
+			<!-- <configuration> -->
+			<!-- <distribution>org.apache.karaf.features:framework</distribution> -->
+			<!-- <javase>9</javase> -->
+			<!-- <framework> -->
+			<!-- <feature>framework</feature> -->
+			<!-- </framework> -->
+			<!-- <startLevel>50</startLevel> -->
+			<!-- <file>feature/feature.xml</file> -->
+			<!-- <karafConfig>/opt/karaf/etc/config.properties</karafConfig> -->
+			<!-- <ignoreMissingConditions>false</ignoreMissingConditions> -->
+			<!-- </configuration> -->
+			<!-- </execution> -->
+			<!-- <execution> -->
+			<!-- <id>features-add-to-repo</id> -->
+			<!-- <phase>install</phase> -->
+			<!-- <goals> -->
+			<!-- <goal>features-add-to-repository</goal> -->
+			<!-- </goals> -->
+			<!-- <configuration> -->
+			<!-- <descriptors> -->
+			<!-- <descriptor>mvn:de.akrebs.stackio/location-service-feature/1.0.0/features/xml</descriptor> -->
+			<!-- </descriptors> -->
+			<!-- <repository>/opt/karaf/deploy</repository> -->
+			<!-- <features> -->
+			<!-- <feature>location-service-db</feature> -->
+			<!-- </features> -->
+			<!-- <bootFeatures> -->
+			<!-- <bootFeature>location-service-db</bootFeature> -->
+			<!-- </bootFeatures> -->
+			<!-- </configuration> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
+
+		</plugins>
+
+		<pluginManagement>
+
+			<plugins>
+
+				<plugin>
+					<groupId>org.apache.karaf.tooling</groupId>
+					<artifactId>karaf-maven-plugin</artifactId>
+					<version>${karaf.version}</version>
+					<extensions>true</extensions>
+				</plugin>
+
+			</plugins>
+
+		</pluginManagement>
+
+	</build>
+
+</project>

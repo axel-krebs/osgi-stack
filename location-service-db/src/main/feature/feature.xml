@@ -2,6 +2,6 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="location-service-repository">
     <feature name="location-service-db" description="DB implementation of the location-service" version="1.0.0">
         <details>This module acts as provider for backend services.</details>
-        <bundle>mvn:de.akrebs.stackio/location-service-db/1.0.0</bundle>
+        <bundle start-level="81">mvn:de.akrebs.stackio/location-service-db/1.0.0</bundle>
     </feature>
 </features>

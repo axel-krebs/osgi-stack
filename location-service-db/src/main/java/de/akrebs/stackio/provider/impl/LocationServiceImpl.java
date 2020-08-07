@@ -1,12 +1,16 @@
 package de.akrebs.stackio.provider.impl;
 
-import org.osgi.service.component.annotations.Component;
-
 import de.akrebs.stackio.provider.api.Location;
 import de.akrebs.stackio.provider.api.LocationService;
 
-@Component(service = LocationService.class, name = "LocationService", property = "service.exported.interfaces=*")
 public class LocationServiceImpl implements LocationService {
+
+    String nodeId;
+
+    public LocationServiceImpl(String nodeId) {
+	super();
+	this.nodeId = nodeId;
+    }
 
     @Override
     public Location find(String desxcription) {

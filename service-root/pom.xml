@@ -42,6 +42,8 @@
 		<javaee.version>8.0.1</javaee.version>
 		<javax.el.version>3.0.1-b06</javax.el.version>
 		<javax.interceptor.version>1.2.2</javax.interceptor.version>
+		<karaf.version>4.2.9</karaf.version>
+		<cellar.version>4.2.0</cellar.version>
 	</properties>
 
 	<repositories>
