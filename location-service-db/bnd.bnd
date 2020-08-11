@@ -51,6 +51,5 @@ javac.target: 1.8
 	stack-util-sun-misc;version='[1.0.0,1.0.1)'
 -privatepackage: de.akrebs.stackio.provider.impl
 Bundle-Activator: de.akrebs.stackio.provider.osgi.Activator
-Import-Package: \
-	org.apache.karaf.util.*;version=4.2.9,\
-	*
+Import-Package: *
+Export-Package: de.akrebs.stackio.provider.osgi

@@ -31,7 +31,7 @@
 			<groupId>org.apache.karaf</groupId>
 			<artifactId>org.apache.karaf.util</artifactId>
 			<version>${karaf.version}</version>
-			<scope>provided</scope>
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
@@ -173,7 +173,6 @@
 										<SERVICE_JAR_ARTIFACT_ID>location-service</SERVICE_JAR_ARTIFACT_ID>
 										<SERVICE_JAR_VERSION>1.0.0</SERVICE_JAR_VERSION>
 									</buildArgs>
-									<tag>${project.version}</tag>
 									<noCache>true</noCache>
 								</configuration>
 							</execution>

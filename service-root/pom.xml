@@ -36,14 +36,15 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<osgi.core.version>6.0.0</osgi.core.version>
 		<osgi.enroute.version></osgi.enroute.version>
-		<mockito.core.version>2.28.2</mockito.core.version>
-		<slf4j.api.version>1.7.30</slf4j.api.version>
-		<log4j.version>2.13.3</log4j.version>
 		<javaee.version>8.0.1</javaee.version>
 		<javax.el.version>3.0.1-b06</javax.el.version>
 		<javax.interceptor.version>1.2.2</javax.interceptor.version>
 		<karaf.version>4.2.9</karaf.version>
 		<cellar.version>4.2.0</cellar.version>
+		<spring.osgi.test.version>1.2.1</spring.osgi.test.version>
+		<mockito.core.version>2.28.2</mockito.core.version>
+		<slf4j.api.version>1.7.30</slf4j.api.version>
+		<log4j.version>2.13.3</log4j.version>
 	</properties>
 
 	<repositories>
@@ -64,6 +65,13 @@
 			<releases>
 				<enabled>true</enabled>
 			</releases>
+		</repository>
+		<repository>
+			<id>maven-jars</id>
+			<url>https://mavenjars.com/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</repository>
 	</repositories>
 
@@ -230,6 +238,21 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+			<version>1.12.0</version>
+		</dependency>
+
+		<!-- Test dependencies -->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -271,31 +294,5 @@
 		</plugins>
 
 	</build>
-
-	<profiles>
-
-		<profile>
-			<id>bnd-them-all</id>
-			<modules>
-				<module>../bnd-utils</module>
-				<module>../karaf-dist</module>
-			</modules>
-			<build>
-				<defaultGoal>package</defaultGoal>
-			</build>
-			<pluginRepositories>
-				<pluginRepository>
-					<id>bnd-snapshots</id>
-					<url>https://bndtools.jfrog.io/bndtools/libs-snapshot/</url>
-					<layout>default</layout>
-					<releases>
-						<enabled>false</enabled>
-					</releases>
-				</pluginRepository>
-			</pluginRepositories>
-
-		</profile>
-
-	</profiles>
 
 </project>

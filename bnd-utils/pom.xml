@@ -254,4 +254,32 @@ Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<profiles>
+
+		<profile>
+			<id>bnd-them-all</id>
+			<modules>
+				<module>../javax-cache</module>
+				<module>../javax-el</module>
+				<module>../javax-interceptor</module>
+				<module>../sun-misc</module>
+			</modules>
+			<build>
+				<defaultGoal>package</defaultGoal>
+			</build>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>bnd-snapshots</id>
+					<url>https://bndtools.jfrog.io/bndtools/libs-snapshot/</url>
+					<layout>default</layout>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+				</pluginRepository>
+			</pluginRepositories>
+
+		</profile>
+
+	</profiles>
 </project>

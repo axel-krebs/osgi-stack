@@ -21,6 +21,8 @@
 	</properties>
 
 	<dependencies>
+	
+		<!-- Dependencies will be installed in docker-local Maven repository -->
 
 		<dependency>
 			<groupId>org.apache.karaf.features</groupId>
@@ -40,17 +42,17 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.apache.karaf.cellar</groupId>
+			<artifactId>org.apache.karaf.cellar.core</artifactId>
+			<version>${cellar.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
 			<groupId>org.apache.karaf</groupId>
 			<artifactId>org.apache.karaf.util</artifactId>
 			<version>${karaf.version}</version>
 			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.karaf.cellar</groupId>
-			<artifactId>org.apache.karaf.cellar.core</artifactId>
-			<version>${cellar.version}</version>
-			<scope>compile</scope>
 		</dependency>
 
 	</dependencies>
