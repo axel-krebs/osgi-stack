@@ -1,0 +1,308 @@
+Aug 12, 2020 9:20:33 PM org.apache.karaf.main.Main launch
+INFO: Installing and starting initial bundles
+Aug 12, 2020 9:20:33 PM org.apache.karaf.main.Main launch
+INFO: All initial bundles installed and set to start
+Aug 12, 2020 9:20:33 PM org.apache.karaf.main.lock.SimpleFileLock lock
+INFO: Trying to lock /opt/karaf/lock
+Aug 12, 2020 9:20:33 PM org.apache.karaf.main.lock.SimpleFileLock lock
+INFO: Lock acquired
+Aug 12, 2020 9:20:33 PM org.apache.karaf.main.Main$KarafLockCallback lockAcquired
+INFO: Lock acquired. Setting startlevel to 100
+21:20:35.193 [1;32mINFO [m [activator-1-thread-2] Adding features: 95a94255-17d0-4b61-90ef-a0a736078697/[0,0.0.0]
+21:20:36.094 [1;32mINFO [m [features-3-thread-1] Changes to perform:
+21:20:36.095 [1;32mINFO [m [features-3-thread-1]   Region: root
+21:20:36.095 [1;32mINFO [m [features-3-thread-1]     Bundles to install:
+21:20:36.096 [1;32mINFO [m [features-3-thread-1]       mvn:com.hazelcast/hazelcast-all/3.12.8
+21:20:36.097 [1;32mINFO [m [features-3-thread-1]       mvn:io.github.openfeign/feign-core/11.0
+21:20:36.098 [1;32mINFO [m [features-3-thread-1]       mvn:io.github.openfeign/feign-gson/11.0
+21:20:36.098 [1;32mINFO [m [features-3-thread-1]       mvn:io.github.openfeign/feign-slf4j/11.0
+21:20:36.099 [1;32mINFO [m [features-3-thread-1]       mvn:javax.annotation/javax.annotation-api/1.2
+21:20:36.100 [1;32mINFO [m [features-3-thread-1]       mvn:javax.cache/cache-api/1.1.0
+21:20:36.100 [1;32mINFO [m [features-3-thread-1]       mvn:javax.el/javax.el-api/3.0.0
+21:20:36.101 [1;32mINFO [m [features-3-thread-1]       mvn:javax.enterprise/cdi-api/1.2
+21:20:36.101 [1;32mINFO [m [features-3-thread-1]       mvn:javax.interceptor/javax.interceptor-api/1.2
+21:20:36.102 [1;32mINFO [m [features-3-thread-1]       mvn:javax.mail/mail/1.4.4
+21:20:36.102 [1;32mINFO [m [features-3-thread-1]       mvn:javax.servlet/javax.servlet-api/3.1.0
+21:20:36.103 [1;32mINFO [m [features-3-thread-1]       mvn:javax.transaction/javax.transaction-api/1.2
+21:20:36.103 [1;32mINFO [m [features-3-thread-1]       mvn:com.eclipsesource.minimal-json/minimal-json/0.9.2
+21:20:36.104 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.aries.blueprint/org.apache.aries.blueprint.api/1.0.1
+21:20:36.104 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.aries.blueprint/org.apache.aries.blueprint.cm/1.2.0
+21:20:36.105 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.aries.blueprint/org.apache.aries.blueprint.core/1.9.0
+21:20:36.105 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.aries.jmx/org.apache.aries.jmx.api/1.1.5
+21:20:36.106 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.aries.jmx/org.apache.aries.jmx.blueprint.api/1.2.0
+21:20:36.107 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.aries.jmx/org.apache.aries.jmx.blueprint.core/1.2.0
+21:20:36.108 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.aries.jmx/org.apache.aries.jmx.core/1.1.8
+21:20:36.108 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.aries.jmx/org.apache.aries.jmx.whiteboard/1.2.0
+21:20:36.108 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.aries.proxy/org.apache.aries.proxy/1.1.1
+21:20:36.109 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.aries.spifly/org.apache.aries.spifly.dynamic.bundle/1.0.10
+21:20:36.109 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.aries.transaction/org.apache.aries.transaction.blueprint/1.1.1
+21:20:36.110 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.aries.transaction/org.apache.aries.transaction.blueprint/2.1.0
+21:20:36.110 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.aries/org.apache.aries.util/1.1.3
+21:20:36.111 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.felix/org.apache.felix.coordinator/1.0.2
+21:20:36.111 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.felix/org.apache.felix.metatype/1.1.6
+21:20:36.112 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.felix/org.apache.felix.scr/2.0.14
+21:20:36.112 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.geronimo.specs/geronimo-jaspic_1.0_spec/1.1
+21:20:36.113 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.bundle/org.apache.karaf.bundle.blueprintstate/4.2.0
+21:20:36.113 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.bundle/org.apache.karaf.bundle.core/4.2.0
+21:20:36.114 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.cellar/org.apache.karaf.cellar.bundle/4.2.0
+21:20:36.115 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.cellar/org.apache.karaf.cellar.config/4.2.0
+21:20:36.115 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.cellar/org.apache.karaf.cellar.core/4.2.0
+21:20:36.116 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.cellar/org.apache.karaf.cellar.dosgi/4.2.0
+21:20:36.116 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.cellar/org.apache.karaf.cellar.event/4.2.0
+21:20:36.117 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.cellar/org.apache.karaf.cellar.hazelcast/4.2.0
+21:20:36.117 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.cellar/org.apache.karaf.cellar.kar/4.2.0
+21:20:36.118 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.cellar/org.apache.karaf.cellar.shell/4.2.0
+21:20:36.118 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.cellar/org.apache.karaf.cellar.utils/4.2.0
+21:20:36.118 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.config/org.apache.karaf.config.core/4.2.0
+21:20:36.119 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.deployer/org.apache.karaf.deployer.blueprint/4.2.0
+21:20:36.119 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.deployer/org.apache.karaf.deployer.features/4.2.0
+21:20:36.120 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.deployer/org.apache.karaf.deployer.kar/4.2.0
+21:20:36.120 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.deployer/org.apache.karaf.deployer.wrap/4.2.0
+21:20:36.121 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.diagnostic/org.apache.karaf.diagnostic.core/4.2.0
+21:20:36.121 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf/org.apache.karaf.event/4.2.0
+21:20:36.122 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.features/org.apache.karaf.features.command/4.2.0
+21:20:36.122 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.http/org.apache.karaf.http.core/4.2.0
+21:20:36.123 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.instance/org.apache.karaf.instance.core/4.2.0
+21:20:36.124 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.jaas.blueprint/org.apache.karaf.jaas.blueprint.config/4.2.0
+21:20:36.124 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.jaas/org.apache.karaf.jaas.command/4.2.0
+21:20:36.125 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.jaas/org.apache.karaf.jaas.config/4.2.0
+21:20:36.126 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.jaas/org.apache.karaf.jaas.modules/4.2.0
+21:20:36.126 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.kar/org.apache.karaf.kar.core/4.2.0
+21:20:36.127 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.log/org.apache.karaf.log.core/4.2.0
+21:20:36.128 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.management/org.apache.karaf.management.server/4.2.0
+21:20:36.128 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.package/org.apache.karaf.package.core/4.2.0
+21:20:36.129 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.scr/org.apache.karaf.scr.management/4.2.0
+21:20:36.132 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.scr/org.apache.karaf.scr.state/4.2.0
+21:20:36.134 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.service/org.apache.karaf.service.core/4.2.0
+21:20:36.134 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.services/org.apache.karaf.services.eventadmin/4.2.0
+21:20:36.135 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.shell/org.apache.karaf.shell.commands/4.2.0
+21:20:36.135 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.shell/org.apache.karaf.shell.console/4.2.0
+21:20:36.135 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.shell/org.apache.karaf.shell.core/4.2.0
+21:20:36.136 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.shell/org.apache.karaf.shell.ssh/4.2.0
+21:20:36.136 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.shell/org.apache.karaf.shell.table/4.2.0
+21:20:36.137 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.karaf.system/org.apache.karaf.system.core/4.2.0
+21:20:36.137 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/1_2
+21:20:36.138 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.not-yet-commons-ssl/0.3.11_1
+21:20:36.138 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.sshd/sshd-core/1.7.0
+21:20:36.140 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.xbean/xbean-bundleutils/4.6
+21:20:36.140 [1;32mINFO [m [features-3-thread-1]       mvn:org.apache.xbean/xbean-finder/4.6
+21:20:36.141 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-client/9.4.6.v20170531
+21:20:36.141 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-continuation/9.4.6.v20170531
+21:20:36.142 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-deploy/9.4.6.v20170531
+21:20:36.142 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-http/9.4.6.v20170531
+21:20:36.143 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-io/9.4.6.v20170531
+21:20:36.143 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-jaas/9.4.6.v20170531
+21:20:36.145 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-jmx/9.4.6.v20170531
+21:20:36.147 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-jndi/9.4.6.v20170531
+21:20:36.151 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-plus/9.4.6.v20170531
+21:20:36.152 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-rewrite/9.4.6.v20170531
+21:20:36.154 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-security/9.4.6.v20170531
+21:20:36.155 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-jaspi/9.4.6.v20170531
+21:20:36.156 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-server/9.4.6.v20170531
+21:20:36.156 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-servlet/9.4.6.v20170531
+21:20:36.157 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-servlets/9.4.6.v20170531
+21:20:36.158 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-util/9.4.6.v20170531
+21:20:36.159 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-util-ajax/9.4.6.v20170531
+21:20:36.160 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-webapp/9.4.6.v20170531
+21:20:36.162 [1;32mINFO [m [features-3-thread-1]       mvn:org.eclipse.jetty/jetty-xml/9.4.6.v20170531
+21:20:36.163 [1;32mINFO [m [features-3-thread-1]       mvn:org.jline/jline-builtins/3.6.2
+21:20:36.163 [1;32mINFO [m [features-3-thread-1]       mvn:org.jline/jline-reader/3.6.2
+21:20:36.165 [1;32mINFO [m [features-3-thread-1]       mvn:org.jline/jline-terminal/3.6.2
+21:20:36.165 [1;32mINFO [m [features-3-thread-1]       mvn:org.jline/jline-terminal-jansi/3.6.2
+21:20:36.166 [1;32mINFO [m [features-3-thread-1]       mvn:org.ow2.asm/asm/6.0
+21:20:36.166 [1;32mINFO [m [features-3-thread-1]       mvn:org.ow2.asm/asm-analysis/6.0
+21:20:36.167 [1;32mINFO [m [features-3-thread-1]       mvn:org.ow2.asm/asm-commons/6.0
+21:20:36.167 [1;32mINFO [m [features-3-thread-1]       mvn:org.ow2.asm/asm-tree/6.0
+21:20:36.167 [1;32mINFO [m [features-3-thread-1]       mvn:org.ow2.asm/asm-util/6.0
+21:20:36.168 [1;32mINFO [m [features-3-thread-1]       mvn:org.ops4j.pax.transx/pax-transx-tm-api/0.2.0
+21:20:36.168 [1;32mINFO [m [features-3-thread-1]       mvn:org.ops4j.pax.transx/pax-transx-tm-geronimo/0.2.0
+21:20:36.169 [1;32mINFO [m [features-3-thread-1]       mvn:org.ops4j.pax.url/pax-url-wrap/2.5.4/jar/uber
+21:20:36.169 [1;32mINFO [m [features-3-thread-1]       mvn:org.ops4j.pax.web/pax-web-api/7.0.0
+21:20:36.170 [1;32mINFO [m [features-3-thread-1]       mvn:org.ops4j.pax.web/pax-web-jetty/7.0.0
+21:20:36.170 [1;32mINFO [m [features-3-thread-1]       mvn:org.ops4j.pax.web/pax-web-runtime/7.0.0
+21:20:36.170 [1;32mINFO [m [features-3-thread-1]       mvn:org.ops4j.pax.web/pax-web-spi/7.0.0
+21:20:36.172 [1;32mINFO [m [features-3-thread-1] Stopping bundles:
+21:20:36.173 [1;32mINFO [m [features-3-thread-1]   org.apache.felix.fileinstall/3.6.4
+21:20:36.184 [1;32mINFO [m [features-3-thread-1]   org.ops4j.pax.logging.pax-logging-api/1.10.1
+21:20:36.185 [1;32mINFO [m [features-3-thread-1] Disabling SLF4J API support.
+21:20:36.185 [1;32mINFO [m [features-3-thread-1] Disabling Jakarta Commons Logging API support.
+21:20:36.186 [1;32mINFO [m [features-3-thread-1] Disabling Log4J API support.
+21:20:36.186 [1;32mINFO [m [features-3-thread-1] Disabling Avalon Logger API support.
+21:20:36.188 [1;32mINFO [m [features-3-thread-1] Disabling JULI Logger API support.
+21:20:36.191 [1;32mINFO [m [features-3-thread-1] Disabling Log4J v2 API support.
+org.apache.karaf.features.core[org.apache.karaf.features.internal.service.FeaturesServiceImpl] : Unknown protocol: mvn
+java.net.MalformedURLException: Unknown protocol: mvn
+	at java.base/java.net.URL.<init>(URL.java:661)
+	at java.base/java.net.URL.<init>(URL.java:523)
+	at java.base/java.net.URL.<init>(URL.java:470)
+	at org.apache.karaf.features.internal.service.FeatureConfigInstaller.installConfigurationFile(FeatureConfigInstaller.java:230)
+	at org.apache.karaf.features.internal.service.FeatureConfigInstaller.installFeatureConfigs(FeatureConfigInstaller.java:147)
+	at org.apache.karaf.features.internal.service.BundleInstallSupportImpl.installConfigs(BundleInstallSupportImpl.java:297)
+	at org.apache.karaf.features.internal.service.FeaturesServiceImpl.installConfigs(FeaturesServiceImpl.java:1141)
+	at org.apache.karaf.features.internal.service.Deployer.deploy(Deployer.java:925)
+	at org.apache.karaf.features.internal.service.FeaturesServiceImpl.doProvision(FeaturesServiceImpl.java:1025)
+	at org.apache.karaf.features.internal.service.FeaturesServiceImpl.lambda$doProvisionInThread$13(FeaturesServiceImpl.java:964)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: java.lang.IllegalStateException: Unknown protocol: mvn
+	at org.apache.felix.framework.URLHandlersStreamHandlerProxy.parseURL(URLHandlersStreamHandlerProxy.java:373)
+	at java.base/java.net.URL.<init>(URL.java:656)
+	... 13 more
+org.apache.karaf.features.core[org.apache.karaf.features.internal.service.BootFeaturesInstaller] : Error installing boot features
+java.net.MalformedURLException: Unknown protocol: mvn
+	at java.base/java.net.URL.<init>(URL.java:661)
+	at java.base/java.net.URL.<init>(URL.java:523)
+	at java.base/java.net.URL.<init>(URL.java:470)
+	at org.apache.karaf.features.internal.service.FeatureConfigInstaller.installConfigurationFile(FeatureConfigInstaller.java:230)
+	at org.apache.karaf.features.internal.service.FeatureConfigInstaller.installFeatureConfigs(FeatureConfigInstaller.java:147)
+	at org.apache.karaf.features.internal.service.BundleInstallSupportImpl.installConfigs(BundleInstallSupportImpl.java:297)
+	at org.apache.karaf.features.internal.service.FeaturesServiceImpl.installConfigs(FeaturesServiceImpl.java:1141)
+	at org.apache.karaf.features.internal.service.Deployer.deploy(Deployer.java:925)
+	at org.apache.karaf.features.internal.service.FeaturesServiceImpl.doProvision(FeaturesServiceImpl.java:1025)
+	at org.apache.karaf.features.internal.service.FeaturesServiceImpl.lambda$doProvisionInThread$13(FeaturesServiceImpl.java:964)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+Caused by: java.lang.IllegalStateException: Unknown protocol: mvn
+	at org.apache.felix.framework.URLHandlersStreamHandlerProxy.parseURL(URLHandlersStreamHandlerProxy.java:373)
+	at java.base/java.net.URL.<init>(URL.java:656)
+	... 13 more
+Aug 12, 2020 9:20:47 PM org.apache.karaf.main.lock.SimpleFileLock lock
+INFO: Trying to lock /opt/karaf/lock
+Aug 12, 2020 9:20:47 PM org.apache.karaf.main.lock.SimpleFileLock lock
+INFO: Lock acquired
+Aug 12, 2020 9:20:47 PM org.apache.karaf.main.Main$KarafLockCallback lockAcquired
+INFO: Lock acquired. Setting startlevel to 100
+21:20:48.996 [1;32mINFO [m [activator-1-thread-2] The specified feature: '95a94255-17d0-4b61-90ef-a0a736078697' version '0.0.0' is already installed
+21:20:49.003 [1;32mINFO [m [activator-1-thread-2] Adding features: 95a94255-17d0-4b61-90ef-a0a736078697/[0,0.0.0]
+21:20:49.908 [1;32mINFO [m [features-3-thread-1] No deployment change.
+21:20:49.910 [1;32mINFO [m [features-3-thread-1] Stopping bundles:
+21:20:49.912 [1;32mINFO [m [features-3-thread-1]   org.apache.felix.fileinstall/3.6.4
+21:20:49.922 [1;32mINFO [m [features-3-thread-1]   org.ops4j.pax.logging.pax-logging-api/1.10.1
+21:20:49.923 [1;32mINFO [m [features-3-thread-1] Disabling SLF4J API support.
+21:20:49.924 [1;32mINFO [m [features-3-thread-1] Disabling Jakarta Commons Logging API support.
+21:20:49.925 [1;32mINFO [m [features-3-thread-1] Disabling Log4J API support.
+21:20:49.925 [1;32mINFO [m [features-3-thread-1] Disabling Avalon Logger API support.
+21:20:49.926 [1;32mINFO [m [features-3-thread-1] Disabling JULI Logger API support.
+21:20:49.927 [1;32mINFO [m [features-3-thread-1] Disabling Log4J v2 API support.
+21:20:51.407 [1;32mINFO [m [features-3-thread-1] Logging initialized @5887ms to org.eclipse.jetty.util.log.Slf4jLog
+21:20:51.430 [1;32mINFO [m [features-3-thread-1] EventAdmin support enabled, servlet events will be postet to topics.
+21:20:51.439 [1;32mINFO [m [features-3-thread-1] LogService support enabled, log events will be created.
+21:20:51.449 [1;32mINFO [m [features-3-thread-1] Pax Web started
+21:20:51.580 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.deployer.kar/4.2.0
+21:20:51.588 [1;32mINFO [m [features-3-thread-1] Not starting local console. To activate set karaf.startLocalConsole=true
+21:20:51.737 [1;33mWARN [m [paxweb-config-1-thread-1] server configuration file location is invalid
+21:20:51.856 [1;32mINFO [m [paxweb-config-1-thread-1] No ALPN class available
+21:20:51.857 [1;32mINFO [m [paxweb-config-1-thread-1] HTTP/2 not available, creating standard ServerConnector for Http
+21:20:51.873 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.bundle.core/4.2.0
+21:20:51.900 [1;32mINFO [m [paxweb-config-1-thread-1] Pax Web available at [0.0.0.0]:[8181]
+21:20:51.917 [1;32mINFO [m [features-3-thread-1] Starting JMX OSGi agent
+21:20:51.953 [1;32mINFO [m [features-3-thread-1] Registering MBean with ObjectName [osgi.compendium:service=cm,version=1.3,framework=org.apache.felix.framework,uuid=ebf374fd-1555-47d5-ae4e-17d3713112e9] for service with service.id [38]
+21:20:52.015 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.service.core/4.2.0
+21:20:52.251 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.package.core/4.2.0
+21:20:52.324 [1;32mINFO [m [activator-1-thread-1] Registering org.osgi.jmx.framework.wiring.BundleWiringStateMBean to MBeanServer org.apache.karaf.management.internal.EventAdminMBeanServerWrapper@1a9e00b3 with name osgi.core:type=wiringState,version=1.1,framework=org.apache.felix.framework,uuid=ebf374fd-1555-47d5-ae4e-17d3713112e9
+21:20:52.332 [1;32mINFO [m [activator-1-thread-1] Registering org.osgi.jmx.framework.ServiceStateMBean to MBeanServer org.apache.karaf.management.internal.EventAdminMBeanServerWrapper@1a9e00b3 with name osgi.core:type=serviceState,version=1.7,framework=org.apache.felix.framework,uuid=ebf374fd-1555-47d5-ae4e-17d3713112e9
+21:20:52.339 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.scr.state/4.2.0
+21:20:52.376 [1;32mINFO [m [activator-1-thread-1] Registering org.osgi.jmx.service.cm.ConfigurationAdminMBean to MBeanServer org.apache.karaf.management.internal.EventAdminMBeanServerWrapper@1a9e00b3 with name osgi.compendium:service=cm,version=1.3,framework=org.apache.felix.framework,uuid=ebf374fd-1555-47d5-ae4e-17d3713112e9
+21:20:52.377 [1;32mINFO [m [activator-1-thread-1] Registering org.osgi.jmx.framework.PackageStateMBean to MBeanServer org.apache.karaf.management.internal.EventAdminMBeanServerWrapper@1a9e00b3 with name osgi.core:type=packageState,version=1.5,framework=org.apache.felix.framework,uuid=ebf374fd-1555-47d5-ae4e-17d3713112e9
+21:20:52.378 [1;32mINFO [m [activator-1-thread-1] Registering org.osgi.jmx.framework.FrameworkMBean to MBeanServer org.apache.karaf.management.internal.EventAdminMBeanServerWrapper@1a9e00b3 with name osgi.core:type=framework,version=1.7,framework=org.apache.felix.framework,uuid=ebf374fd-1555-47d5-ae4e-17d3713112e9
+21:20:52.380 [1;32mINFO [m [activator-1-thread-1] Registering org.osgi.jmx.framework.BundleStateMBean to MBeanServer org.apache.karaf.management.internal.EventAdminMBeanServerWrapper@1a9e00b3 with name osgi.core:type=bundleState,version=1.7,framework=org.apache.felix.framework,uuid=ebf374fd-1555-47d5-ae4e-17d3713112e9
+21:20:52.417 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.shell.commands/4.2.0
+21:20:52.433 [1;32mINFO [m [activator-1-thread-1] Activating the Apache Karaf ServiceComponentRuntime MBean
+21:20:52.517 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.config.core/4.2.0
+21:20:52.651 [1;32mINFO [m [features-3-thread-1] Command registration delayed for bundle org.apache.karaf.features.command/4.2.0. Missing dependencies: [org.apache.karaf.features.FeaturesService, org.eclipse.equinox.region.RegionDigraph]
+21:20:52.659 [1;32mINFO [m [features-3-thread-1] Binding bundle: [org.apache.karaf.http.core [59]] to http service
+21:20:52.691 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.http.core/4.2.0
+21:20:52.782 [1;32mINFO [m [features-3-thread-1] Command registration delayed for bundle org.apache.karaf.shell.ssh/4.2.0. Missing dependencies: [org.apache.sshd.server.SshServer]
+21:20:52.797 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.diagnostic.core/4.2.0
+21:20:52.837 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.jaas.command/4.2.0
+21:20:52.853 [1;32mINFO [m [features-3-thread-1] Updating commands for bundle org.apache.karaf.jaas.command/4.2.0
+21:20:52.860 [1;32mINFO [m [features-3-thread-1] Updating commands for bundle org.apache.karaf.jaas.command/4.2.0
+21:20:52.897 [1;32mINFO [m [features-3-thread-1] Command registration delayed for bundle org.apache.karaf.log.core/4.2.0. Missing dependencies: [org.apache.karaf.log.core.LogEventFormatter, org.apache.karaf.log.core.LogService]
+21:20:52.922 [1;32mINFO [m [activator-1-thread-1] Registering commands for bundle org.apache.karaf.log.core/4.2.0
+21:20:52.949 [1;32mINFO [m [features-3-thread-1] Command registration delayed for bundle org.apache.karaf.kar.core/4.2.0. Missing dependencies: [org.apache.karaf.kar.KarService]
+21:20:52.980 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.system.core/4.2.0
+21:20:53.047 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.instance.core/4.2.0
+21:20:53.058 [1;32mINFO [m [activator-1-thread-1] Registering commands for bundle org.apache.karaf.shell.ssh/4.2.0
+21:20:53.079 [1;32mINFO [m [features-3-thread-1] Command registration delayed for bundle org.apache.karaf.cellar.dosgi/4.2.0. Missing dependencies: [org.apache.karaf.cellar.core.GroupManager, org.apache.karaf.cellar.core.ClusterManager]
+21:20:53.138 [1;32mINFO [m [features-3-thread-1] Command registration delayed for bundle org.apache.karaf.cellar.core/4.2.0. Missing dependencies: [org.apache.karaf.cellar.core.GroupManager, org.apache.karaf.cellar.core.ClusterManager]
+21:20:53.179 [1;32mINFO [m [features-3-thread-1] HazelcastOSGiServiceImpl{ownerBundle=com.hazelcast [10], hazelcastInstance=null, active=false, id=3.12.8#OSS} has been registered as OSGI service and activated now
+21:20:53.194 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.cellar.hazelcast/4.2.0
+21:20:53.209 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.cellar.utils/4.2.0
+21:20:53.237 [1;32mINFO [m [activator-1-thread-1] Will use an Executor with a pool of threads
+21:20:53.252 [1;32mINFO [m [features-3-thread-1] Command registration delayed for bundle org.apache.karaf.cellar.shell/4.2.0. Missing dependencies: [org.apache.karaf.cellar.core.GroupManager, org.apache.karaf.cellar.core.command.ExecutionContext, org.apache.karaf.cellar.core.ClusterManager]
+21:20:53.272 [1;32mINFO [m [activator-1-thread-1] Loading configuration '/opt/karaf/etc/hazelcast.xml' from System property 'hazelcast.config'
+21:20:53.274 [1;32mINFO [m [activator-1-thread-1] Using configuration file at /opt/karaf/etc/hazelcast.xml
+21:20:53.302 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.event/4.2.0
+21:20:53.327 [1;32mINFO [m [features-3-thread-1] Command registration delayed for bundle org.apache.karaf.cellar.kar/4.2.0. Missing dependencies: [org.apache.karaf.cellar.core.event.EventProducer, org.apache.karaf.cellar.core.GroupManager, org.apache.karaf.cellar.core.ClusterManager]
+21:20:53.369 [1;32mINFO [m [features-3-thread-1] Command registration delayed for bundle org.apache.karaf.cellar.bundle/4.2.0. Missing dependencies: [org.apache.karaf.cellar.core.GroupManager, org.apache.karaf.cellar.core.event.EventProducer, org.apache.karaf.cellar.core.ClusterManager]
+21:20:53.424 [1;32mINFO [m [features-3-thread-1] Command registration delayed for bundle org.apache.karaf.cellar.config/4.2.0. Missing dependencies: [org.apache.karaf.cellar.core.GroupManager, org.apache.karaf.cellar.core.event.EventProducer, org.apache.karaf.cellar.core.ClusterManager]
+21:20:53.478 [1;32mINFO [m [features-3-thread-1] Bundle org.apache.aries.transaction.blueprint/2.1.0 is waiting for dependencies [(objectClass=javax.transaction.TransactionManager)]
+21:20:53.522 [1;32mINFO [m [features-3-thread-1] Bundle org.apache.aries.transaction.blueprint/1.1.1 is waiting for dependencies [(objectClass=javax.transaction.TransactionManager)]
+21:20:53.565 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.cellar.event/4.2.0
+21:20:53.978 [1;33mWARN [m [activator-1-thread-1] Hazelcast is starting in a Java modular environment (Java 9 and newer) but without proper access to required Java packages. Use additional Java arguments to provide Hazelcast access to Java internal API. The internal API access is used to get the best performance results. Arguments to be used:
+ --add-modules java.se --add-exports java.base/jdk.internal.ref=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.management/sun.management=ALL-UNNAMED --add-opens jdk.management/com.sun.management.internal=ALL-UNNAMED
+21:20:54.033 [1;32mINFO [m [features-3-thread-1] Registering commands for bundle org.apache.karaf.features.command/4.2.0
+21:20:54.072 [1;32mINFO [m [activator-1-thread-1] [LOCAL] [cellar] [3.12.8] Prefer IPv4 stack is true, prefer IPv6 addresses is false
+21:20:54.082 [1;32mINFO [m [activator-1-thread-2] Registering commands for bundle org.apache.karaf.kar.core/4.2.0
+21:20:54.100 [1;32mINFO [m [activator-1-thread-1] [LOCAL] [cellar] [3.12.8] Picked [172.17.0.2]:5701, using socket ServerSocket[addr=/0.0.0.0,localport=5701], bind any local is true
+21:20:54.156 [1;32mINFO [m [activator-1-thread-1] [172.17.0.2]:5701 [cellar] [3.12.8] Hazelcast 3.12.8 (20200625 - 35a975e) starting at [172.17.0.2]:5701
+21:20:54.160 [1;32mINFO [m [activator-1-thread-1] [172.17.0.2]:5701 [cellar] [3.12.8] Copyright (c) 2008-2020, Hazelcast, Inc. All Rights Reserved.
+21:20:54.166 [1;32mINFO [m [activator-1-thread-1] [172.17.0.2]:5701 [cellar] [3.12.8] A non-empty group password is configured for the Hazelcast member. Since version 3.8.2, members with the same group name, but with different group passwords (that do not use authentication) form a cluster. The group password configuration will be removed completely in a future release.
+21:20:54.314 [1;32mINFO [m [features-3-thread-1] The specified feature: '95a94255-17d0-4b61-90ef-a0a736078697' version '0.0.0' is already installed
+21:20:54.319 [1;32mINFO [m [features-3-thread-1] Adding features: 95a94255-17d0-4b61-90ef-a0a736078697/[0,0.0.0]
+21:20:54.913 [1;32mINFO [m [activator-1-thread-1] [172.17.0.2]:5701 [cellar] [3.12.8] Backpressure is disabled
+21:20:55.630 [1;32mINFO [m [features-2-thread-1] No deployment change.
+21:20:55.658 [1;32mINFO [m [features-2-thread-1] Starting bundles:
+21:20:55.662 [1;32mINFO [m [features-2-thread-1]   org.apache.karaf.features.core/4.2.0
+21:20:55.664 [1;32mINFO [m [features-2-thread-1] Done.
+21:20:55.773 [1;32mINFO [m [activator-1-thread-1] [172.17.0.2]:5701 [cellar] [3.12.8] Creating MulticastJoiner
+21:20:56.038 [1;32mINFO [m [activator-1-thread-1] [172.17.0.2]:5701 [cellar] [3.12.8] Starting 2 partition threads and 3 generic threads (1 dedicated for priority tasks)
+21:20:56.045 [1;32mINFO [m [activator-1-thread-1] [172.17.0.2]:5701 [cellar] [3.12.8] Diagnostics disabled. To enable add -Dhazelcast.diagnostics.enabled=true to the JVM arguments.
+21:20:56.057 [1;32mINFO [m [activator-1-thread-1] [172.17.0.2]:5701 [cellar] [3.12.8] [172.17.0.2]:5701 is STARTING
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.hazelcast.internal.networking.nio.SelectorOptimizer (jar:bundle://10.0:0/!/) to field sun.nio.ch.SelectorImpl.selectedKeys
+WARNING: Please consider reporting this to the maintainers of com.hazelcast.internal.networking.nio.SelectorOptimizer
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+21:20:58.148 [1;32mINFO [m [activator-1-thread-1] [172.17.0.2]:5701 [cellar] [3.12.8] 
+
+Members {size:1, ver:1} [
+	Member [172.17.0.2]:5701 - e9154ce6-d98c-4e23-a1c5-e8a518c9a23b this
+]
+
+21:20:58.175 [1;32mINFO [m [activator-1-thread-1] [172.17.0.2]:5701 [cellar] [3.12.8] [172.17.0.2]:5701 is STARTED
+21:20:58.267 [1;32mINFO [m [activator-1-thread-1] [172.17.0.2]:5701 [cellar] [3.12.8] Initializing cluster partition table arrangement...
+21:20:58.429 [1;32mINFO [m [activator-1-thread-1] Registering commands for bundle org.apache.karaf.cellar.dosgi/4.2.0
+21:20:58.437 [1;32mINFO [m [activator-1-thread-1] Registering commands for bundle org.apache.karaf.cellar.core/4.2.0
+21:20:58.448 [1;32mINFO [m [activator-1-thread-1] Registering commands for bundle org.apache.karaf.cellar.config/4.2.0
+21:20:58.451 [1;32mINFO [m [activator-1-thread-1] Registering commands for bundle org.apache.karaf.cellar.bundle/4.2.0
+21:20:58.476 [1;32mINFO [m [activator-1-thread-1] Registering commands for bundle org.apache.karaf.cellar.kar/4.2.0
+21:20:58.504 [1;32mINFO [m [activator-1-thread-1] Registering commands for bundle org.apache.karaf.cellar.shell/4.2.0
+21:20:58.603 [1;33mWARN [m [EventAdminThread #9] No whitelist/blacklist found for default, check your configuration !
+21:20:58.604 [1;33mWARN [m [EventAdminThread #11] No whitelist/blacklist found for default, check your configuration !
+21:20:58.604 [1;33mWARN [m [Thread-1] No whitelist/blacklist found for default, check your configuration !
+21:20:58.612 [1;33mWARN [m [EventAdminThread #15] No whitelist/blacklist found for default, check your configuration !
+21:20:58.618 [1;33mWARN [m [EventAdminThread #9] No whitelist/blacklist found for default, check your configuration !
+21:20:58.631 [1;33mWARN [m [EventAdminThread #17] No whitelist/blacklist found for default, check your configuration !
+21:20:58.639 [1;33mWARN [m [EventAdminThread #9] No whitelist/blacklist found for default, check your configuration !
+21:20:58.664 [1;33mWARN [m [EventAdminThread #9] No whitelist/blacklist found for default, check your configuration !
+21:20:58.673 [1;33mWARN [m [EventAdminThread #1] No whitelist/blacklist found for default, check your configuration !
+21:20:58.682 [1;33mWARN [m [EventAdminThread #5] No whitelist/blacklist found for default, check your configuration !
+21:20:58.691 [1;33mWARN [m [EventAdminThread #10] No whitelist/blacklist found for default, check your configuration !
+21:20:58.694 [1;33mWARN [m [EventAdminThread #11] No whitelist/blacklist found for default, check your configuration !
+21:20:58.710 [1;33mWARN [m [EventAdminThread #17] No whitelist/blacklist found for default, check your configuration !
+21:20:58.715 [1;33mWARN [m [EventAdminThread #20] No whitelist/blacklist found for default, check your configuration !
+21:20:58.719 [1;33mWARN [m [EventAdminThread #1] No whitelist/blacklist found for default, check your configuration !
+21:20:58.750 [1;33mWARN [m [EventAdminThread #12] No whitelist/blacklist found for default, check your configuration !
+21:20:58.769 [1;33mWARN [m [EventAdminThread #14] No whitelist/blacklist found for default, check your configuration !
+21:20:58.784 [1;33mWARN [m [EventAdminThread #18] No whitelist/blacklist found for default, check your configuration !
+21:20:58.883 [1;33mWARN [m [EventAdminThread #17] No whitelist/blacklist found for default, check your configuration !
+21:20:58.890 [1;33mWARN [m [EventAdminThread #5] No whitelist/blacklist found for default, check your configuration !
+21:20:58.892 [1;33mWARN [m [EventAdminThread #1] No whitelist/blacklist found for default, check your configuration !
+21:20:58.933 [1;33mWARN [m [EventAdminThread #13] No whitelist/blacklist found for default, check your configuration !
+21:20:58.959 [1;33mWARN [m [EventAdminThread #3] No whitelist/blacklist found for default, check your configuration !
+21:20:58.964 [1;33mWARN [m [EventAdminThread #4] No whitelist/blacklist found for default, check your configuration !

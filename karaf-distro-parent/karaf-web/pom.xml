@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.akrebs.stackio</groupId>
+		<artifactId>karaf-distro-parent</artifactId>
+		<version>1.1.0</version>
+	</parent>
+
+	<artifactId>karaf-web</artifactId>
+
+	<name>Web Profile Template</name>
+
+	<description>Karaf instance optimized for restful web endpoints.</description>
+
+	<packaging>karaf-assembly</packaging>
+
+	<build>
+
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.karaf.tooling</groupId>
+				<artifactId>karaf-maven-plugin</artifactId>
+				<version>${karaf.version}</version><!--$NO-MVN-MAN-VER$ -->
+				<extensions>true</extensions>
+				<configuration>
+					<enableGeneration>true</enableGeneration>
+					<finalName>karaf-web</finalName>
+					<javase>9</javase>
+					<!-- <framework>framework-logback</framework> -->
+					<framework>framework</framework>
+					<libraries>
+						<!-- Add libraries not contained in JDK since version 9.. -->
+						<library>mvn:org.apache.karaf.diagnostic/org.apache.karaf.diagnostic.boot/${karaf.version};type:=boot</library>
+						<library>mvn:org.apache.karaf.jaas/org.apache.karaf.jaas.boot/${karaf.version};type:=boot</library>
+					</libraries>
+					<bootFeatures>
+						<bootFeature>standard</bootFeature>
+						<bootFeature>eventadmin</bootFeature>
+						<bootFeature>pax-http-jetty</bootFeature>
+						<bootFeature>pax-http-whiteboard</bootFeature>
+<!-- 						<bootFeature>webconsole</bootFeature> -->
+						<bootFeature>transaction</bootFeature>
+						<bootFeature>cellar</bootFeature>
+						<bootFeature>cellar-eventadmin</bootFeature>
+						<bootFeature>cellar-dosgi</bootFeature>
+<!-- 						<bootFeature>cellar-webconsole</bootFeature> -->
+					</bootFeatures>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+
+	<profiles>
+
+		<profile>
+			<id>docker</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.spotify</groupId>
+						<artifactId>dockerfile-maven-plugin</artifactId>
+						<version>1.4.13</version>
+						<executions>
+							<execution>
+								<id>build-image-and-push</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+									<goal>push</goal>
+								</goals>
+								<configuration>
+									<tag>${project.version}</tag>
+								</configuration>
+							</execution>
+						</executions>
+						<configuration>
+							<noCache>true</noCache>
+							<pullNewerImage>true</pullNewerImage>
+							<repository>axel9691/${project.artifactId}</repository>
+							<username>axel9691</username>
+							<password>Axel#9691</password>
+							<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>debug</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.karaf.tooling</groupId>
+						<artifactId>karaf-maven-plugin</artifactId>
+						<version>${karaf.version}</version><!--$NO-MVN-MAN-VER$ -->
+						<extensions>true</extensions>
+						<configuration>
+							<enableGeneration>false</enableGeneration>
+						</configuration>
+						<executions>
+							<execution>
+								<id>debug</id>
+								<phase>package</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<karafDistribution>${project.build.directory}/${project.artifactId}-${project.version}.zip</karafDistribution>
+									<keepRunning>true</keepRunning>
+									<deployProjectArtifact>false</deployProjectArtifact>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
+</project>

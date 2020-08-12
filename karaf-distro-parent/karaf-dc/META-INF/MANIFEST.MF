@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Karaf Domain Controller
+Bundle-SymbolicName: karaf-dc
+Bundle-Version: 1.0.0
+Bundle-Vendor: Axel Krebs

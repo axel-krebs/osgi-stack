@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.akrebs.stackio</groupId>
+		<artifactId>karaf-distro-parent</artifactId>
+		<version>1.1.0</version>
+	</parent>
+
+	<artifactId>karaf-dc</artifactId>
+
+	<name>Domain Controller Template</name>
+
+	<description>Domain Controller features enhanced logging capabilities</description>
+
+	<packaging>karaf-assembly</packaging>
+
+	<dependencies>
+
+		<!-- dependencies specific to domain controller, e.g. logging etc. -->
+
+		<dependency>
+			<groupId>org.influxdb</groupId>
+			<artifactId>influxdb-java</artifactId>
+			<version>2.19</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.karaf.tooling</groupId>
+				<artifactId>karaf-maven-plugin</artifactId>
+				<version>${karaf.version}</version><!--$NO-MVN-MAN-VER$ -->
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>features-add-to-repo</id>
+						<phase>package</phase>
+						<goals>
+							<goal>assembly</goal>
+						</goals>
+						<configuration>
+							<javase>9</javase>
+							<libraries>
+								<!-- Add libraries not contained in JDK since version 9.. -->
+								<library>mvn:org.apache.karaf.diagnostic/org.apache.karaf.diagnostic.boot/${karaf.version};type:=boot</library>
+								<library>mvn:org.apache.karaf.jaas/org.apache.karaf.jaas.boot/${karaf.version};type:=boot</library>
+							</libraries>
+							<defaultStartLevel>30</defaultStartLevel>
+							<startupBundles>
+								<startupBundle>mvn:com.google.code.gson/gson/${gson.version}</startupBundle>
+								<startupBundle>mvn:io.github.openfeign/feign-core/${feign.version}</startupBundle>
+								<startupBundle>mvn:io.github.openfeign/feign-gson/${feign.version}</startupBundle>
+								<startupBundle>mvn:io.github.openfeign/feign-slf4j/${feign.version}</startupBundle>
+							</startupBundles>
+							<bootFeatures>
+								<bootFeature>standard</bootFeature>
+								<bootFeature>diagnostic</bootFeature>
+								<bootFeature>http</bootFeature>
+								<bootFeature>transaction</bootFeature>
+								<bootFeature>cellar</bootFeature>
+								<bootFeature>cellar-dosgi</bootFeature>
+								<bootFeature>cellar-eventadmin</bootFeature>
+								<!-- <bootFeature>cellar-etcd</bootFeature> wants com.netflix.feign! -->
+								<bootFeature>cellar-log</bootFeature>
+								<bootFeature>cellar-webconsole</bootFeature>
+								<bootFeature>cellar-obr</bootFeature>
+							</bootFeatures>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+	<profiles>
+
+		<profile>
+			<id>docker</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.spotify</groupId>
+						<artifactId>dockerfile-maven-plugin</artifactId>
+						<version>1.4.13</version>
+						<executions>
+							<execution>
+								<id>build-image</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+									<goal>push</goal>
+								</goals>
+								<configuration>
+									<tag>${project.version}</tag>
+									<buildArgs>
+										<GSON_VERSION>${gson.version}</GSON_VERSION>
+										<FEIGN_VERSION>${feign.version}</FEIGN_VERSION>
+									</buildArgs>
+								</configuration>
+							</execution>
+						</executions>
+						<configuration>
+							<noCache>true</noCache>
+							<pullNewerImage>true</pullNewerImage>
+							<repository>axel9691/${project.artifactId}</repository>
+							<username>axel9691</username>
+							<password>Axel#9691</password>
+							<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+						</configuration>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
+
+</project>

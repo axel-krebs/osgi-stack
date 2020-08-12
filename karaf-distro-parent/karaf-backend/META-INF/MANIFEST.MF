@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Karaf-backend
+Bundle-SymbolicName: karaf-backend
+Bundle-Version: 1.0.0.qualifier

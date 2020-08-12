@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.akrebs.stackio</groupId>
+
+	<artifactId>karaf-dist-report</artifactId>
+
+	<version>1.0.0</version>
+
+	<packaging>pom</packaging>
+
+	<description>Install Maven dependencies of bundle in docker-local repository</description>
+
+	<build>
+
+		<plugins>
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.2</version>
+				<executions>
+					<execution>
+						<id>update-local</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>analyze</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.karaf.tooling</groupId> -->
+<!-- 				<artifactId>karaf-maven-plugin</artifactId> -->
+<!-- 				<version>4.2.9</version> -->
+<!-- 				<extensions>true</extensions> -->
+<!-- 				<configuration> -->
+<!-- 					<enableGeneration>false</enableGeneration> -->
+<!-- 					<framework>static</framework> -->
+<!-- 				</configuration> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>report</id> -->
+<!-- 						<phase>generate-resources</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>client</goal> -->
+<!-- 						</goals> -->
+<!-- 						<configuration> -->
+<!-- 							<host>localhost</host> -->
+<!-- 							<port>8081</port> -->
+<!-- 							<user>karaf</user> -->
+<!-- 							<password>karaf</password> -->
+<!-- 							<delay>10</delay> -->
+<!-- 							<commands> -->
+<!-- 								<command> -->
+<!-- 									<rank>1</rank> -->
+<!-- 									<command>bunde:list -t 0</command> -->
+<!-- 								</command> -->
+<!-- 							</commands> -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+
+		</plugins>
+
+		<pluginManagement>
+		
+<!-- 			<plugins> -->
+<!-- 				<plugin> -->
+<!-- 					<groupId>org.apache.karaf.tooling</groupId> -->
+<!-- 					<artifactId>karaf-maven-plugin</artifactId> -->
+<!-- 					<version>4.2.9</version> -->
+<!-- 					<extensions>true</extensions> -->
+<!-- 				</plugin> -->
+<!-- 			</plugins> -->
+			
+		</pluginManagement>
+
+	</build>
+
+	<profiles>
+		<profile>
+			<id>localOutputDir</id>
+			<build>
+				<directory>.</directory>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

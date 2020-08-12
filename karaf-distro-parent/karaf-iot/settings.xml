@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    Copyright (c) 2020 IBM Corporation and others.
+   
+    This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License 2.0
+    which accompanies this distribution, and is available at
+    https://www.eclipse.org/legal/epl-2.0/
+   
+    SPDX-License-Identifier: EPL-2.0
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+	<localRepository>${user.home}/.m2/repository</localRepository>
+	<interactiveMode>false</interactiveMode>
+	<usePluginRegistry>false</usePluginRegistry>
+	<offline>true</offline>
+	<pluginGroups>
+	</pluginGroups>
+	<servers />
+	<mirrors />
+	<proxies />
+	<profiles>
+		<profile>
+			<id>secure-central</id>
+			<!--Override the repository (and pluginRepository) "central" from the 
+				Maven Super POM -->
+			<repositories>
+				<repository>
+					<id>central</id>
+					<url>https://repo1.maven.org/maven2</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>central</id>
+					<url>https://repo1.maven.org/maven2</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+		<profile>
+			<id>ibiblio</id>
+			<repositories>
+				<repository>
+					<id>ibiblio</id>
+					<name>IBiblio Repository</name>
+					<url>http://mirrors.ibiblio.org/maven2</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>ibiblio</id>
+					<name>IBiblio Repository</name>
+					<url>http://mirrors.ibiblio.org/maven2</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+		<profile>
+			<id>jboss-public</id>
+			<repositories>
+				<repository>
+					<id>jboss-public</id>
+					<name>JBoss public repository</name>
+					<url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+				</repository>
+			</repositories>
+		</profile>
+
+		<!-- Configure the JBoss Early Access Maven repository -->
+		<profile>
+			<id>jboss-earlyaccess-repository</id>
+			<repositories>
+				<repository>
+					<id>jboss-earlyaccess-repository</id>
+					<url>http://maven.repository.redhat.com/earlyaccess/all/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>jboss-earlyaccess-plugin-repository</id>
+					<url>http://maven.repository.redhat.com/earlyaccess/all/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+	<activeProfiles>
+		<activeProfile>secure-central</activeProfile>
+		<!--activeProfile>ibiblio</activeProfile -->
+		<!--activeProfile>codehaus-snapshots</activeProfile -->
+		<!-- Optionally, make the repositories active by default -->
+		<!--activeProfile>jboss-ga-repository</activeProfile -->
+		<!--activeProfile>jboss-earlyaccess-repository</activeProfile -->
+		<!--activeProfile>jboss-public</activeProfile -->
+	</activeProfiles>
+</settings>

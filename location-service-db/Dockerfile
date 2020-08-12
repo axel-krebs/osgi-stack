@@ -25,7 +25,7 @@ RUN mvn -f feature-repo.xml package install
 #RUN echo "location-service-db=mvn:de.akrebs.stackio/location-service-feature/${ARTIFACT_VERSION}/xml/features" >> $KARAF_BASE/etc/org.apache.karaf.features.repos.cfg
 #RUN echo "repository.mvn\\:de.akrebs.stackio/location-service-feature/${ARTIFACT_VERSION}/xml/features = mvn:de.akrebs.stackio/location-service-feature/${ARTIFACT_VERSION}/xml/features" >> $KARAF_BASE/etc/profile.cfg
 #RUN echo "feature.location-service-db = location-service-db" >> $KARAF_BASE/etc/profile.cfg
-RUN echo "default.feature.whitelist.outbound=location-service-db\ndefault.feature.whitelist.inbound=location-service-db" >> $KARAF_BASE/etc/org.apache.karaf.cellar.groups.cfg
+RUN echo "default.feature.whitelist.outbound=location-service,location-service-db\ndefault.feature.whitelist.inbound=location-service,location-service-db" >> $KARAF_BASE/etc/org.apache.karaf.cellar.groups.cfg
 
 # Adding the feature that contains the service bundles to the Karaf instance
 RUN cp feature.xml ${KARAF_BASE}/deploy
